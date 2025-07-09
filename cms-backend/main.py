@@ -19,9 +19,10 @@ HUGO_CONTENT_DIR = Path("./../content")
 def list_posts():
     posts = []
     for file in HUGO_CONTENT_DIR.glob("**/*.md"):
+        if file.name.endswith("_index.md") or file.name.startswith("."):
+            continue
         posts.append({"title": file.stem, "path": str(file.relative_to(HUGO_CONTENT_DIR))})
     return {"posts": posts}
-
 
 @app.get("/posts/{slug:path}")
 def get_post(slug: str):
