@@ -8,8 +8,8 @@ content/post/image-gallery
 content/post/markdown-syntax 
 content/post/math-typesetting
 content/post/shortcodes
-cms
-cms-backend
+# cms
+# cms-backend
 
 
 
