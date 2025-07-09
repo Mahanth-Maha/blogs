@@ -1,0 +1,13 @@
+{{ $related := (where .Site.RegularPages "Params.featured" true) | first 5 }}
+{{ with $related }}
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Featured Content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            {{ range . }}
+                {{ partial "article-list/tile" (dict "context" . "size" "250x150" "Type" "articleList") }}
+            {{ end }}
+        </div>
+    </div>
+</aside>
+{{ end }}

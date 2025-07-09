@@ -1,0 +1,43 @@
+{{ define "main" }}
+    {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+    {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($pages | intersect $notHidden) }}
+
+    {{ $pinnedPages := where $filtered "Params.pinned" true }}
+    {{ $welcomePage := first 1 (where $pinnedPages "Params.slug" "welcome") }}
+    {{ $otherPinned := where $pinnedPages "Params.slug" "!=" "welcome" }}
+
+    {{ $unpinnedPages := where $filtered "Params.pinned" "!=" true }}
+    {{ $pag := .Paginate ($unpinnedPages) }}
+
+    <!-- {{- partial "featured.html" . -}} -->
+    <section class="article-list">
+        {{ if eq $pag.PageNumber 1 }}
+            <!-- Show welcome page first -->
+            {{ range $welcomePage }}
+                <span class="article-page">
+                    {{ partial "article/pinned-article.html" . }}
+                </span>
+            {{ end }}
+
+            <!-- Other pinned pages -->
+            {{ range $otherPinned }}
+                <span class="article-page">
+                    {{ partial "article-list/default" . }}
+                </span>
+            {{ end }}
+        {{ end }}
+
+        <!-- Unpinned paginated pages -->
+        {{ range $pag.Pages }}
+            {{ partial "article-list/default" . }}
+        {{ end }}
+    </section>
+    
+    {{- partial "pagination.html" . -}}
+    {{- partial "footer/footer" . -}}
+{{ end }}
+
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
+{{ end }}

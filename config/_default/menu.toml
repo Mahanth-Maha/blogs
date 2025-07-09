@@ -1,0 +1,63 @@
+# Configure main menu and social menu
+# [[main]]
+# identifier = "home"
+# name = "Home"
+# url = "/"
+# [main.params]
+# icon = "home"
+# newtab = true
+
+[[main]]
+identifier = "resume"
+name = "Resumé 🌐"
+url = "https://resume.mahanthyalla.in"
+
+[main.params]
+icon = "resume"
+newtab = true 
+
+[[main]]
+identifier = "website"
+name = "Portfolio 🌐"
+url = "https://mahanthyalla.in"
+
+[main.params]
+icon = "website"
+newtab = true 
+
+
+
+
+
+[[social]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/mahanth-maha"
+
+[social.params]
+icon = "brand-github"
+
+[[social]]
+identifier = "twitter"
+name = "Twitter"
+url = "https://twitter.com/mahanth_maha"
+
+[social.params]
+icon = "brand-twitter"
+
+[[social]]
+identifier = "linkedin"
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/mahanth_maha"
+
+[social.params]
+icon = "brand-linkedin"
+
+[[social]]
+identifier = "email"
+name = "Email"
+url = "mailto:mahanth@duck.com"
+
+[social.params]
+icon = "brand-mail"
+
