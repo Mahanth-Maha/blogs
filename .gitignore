@@ -3,7 +3,11 @@ resources
 .hugo_build.lock
 
 themes
-content/post/
+content/post/hello-world
+content/post/image-gallery
+content/post/markdown-syntax 
+content/post/math-typesetting
+content/post/shortcodes
 cms
 cms-backend
 
