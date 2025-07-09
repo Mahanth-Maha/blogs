@@ -3,7 +3,7 @@ resources
 .hugo_build.lock
 
 themes
-content
+content/post/
 cms
 cms-backend
 
