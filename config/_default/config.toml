@@ -1,5 +1,6 @@
 # Change baseurl before deploy
-baseurl = "https://blogs.mahanthyalla.in"
+# baseurl = "https://blogs.mahanthyalla.in"
+baseURL = "https://mahanthyalla.in/blogs/"
 languageCode = "en-us"
 title = "Mahanth Yalla"
 
