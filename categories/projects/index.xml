@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Projects on Mahanth Yalla</title><link>https://mahanthyalla.in/blogs/categories/projects/</link><description>Recent content in Projects on Mahanth Yalla</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 01 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mahanthyalla.in/blogs/categories/projects/index.xml" rel="self" type="application/rss+xml"/><item><title>Mini-GPT Project</title><link>https://mahanthyalla.in/blogs/p/mini-gpt-project/</link><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/mini-gpt-project/</guid><description>&lt;h1 id="step-by-step-to-a-mini-gpt">&lt;a href="#step-by-step-to-a-mini-gpt" class="header-anchor">&lt;/a>Step by Step to a mini-GPT
+&lt;/h1>&lt;p>Trying to create a small mini-version similar to the &lt;a class="link" href="https://chatgpt.com/" target="_blank" rel="noopener"
+>chatGPT&lt;/a> by the end of this project.&lt;/p>
+&lt;p>Starting with char by char para random generations to meaningful generations to a complete input driven generation / info Retrieval.&lt;/p>
+&lt;h2 id="01---data-preprocessing">&lt;a href="#01---data-preprocessing" class="header-anchor">&lt;/a>01 - Data Preprocessing
+&lt;/h2>&lt;p>Dataset : &lt;a class="link" href="https://huggingface.co/datasets/Salesforce/wikitext" target="_blank" rel="noopener"
+>WikiTex Dataset&lt;/a>&lt;/p>
+&lt;p>cleaned and processed dataset to generate new paragraphs&lt;/p>
+&lt;h2 id="02---bigram-char-based-model">&lt;a href="#02---bigram-char-based-model" class="header-anchor">&lt;/a>02 - Bigram Char based model
+&lt;/h2>&lt;p>Bigram Model with self implemented Value, Neuron, Layer and MultiLayerPerceptron classes to implement BackPropagation with Stochastic Gradient descent and regenerate character by character.&lt;/p>
+&lt;p>Sample output Starting with Random character :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">grte wouat 1 f Ithe t Ch . ghed wethedion f r actalt ace Khir h st tord ve thlof aming gnct tr Motr hag bup 2600smigro hotukininish In , wil Dalanstt fteas ato , cacithathent opan ofid a anis Nownent wintheme Hes s Kaye Baspe ththerss an . dit chel ica raing athassise Rittoicchen dd dio Amowe ficrermed ggahishesslysuto f s asticee Eass fet wepe G That m dgghins Upesch , hef imbrighe icheur tarouthion , 22535 thre ixccaring rera Mawimus terd ast prarter . hivedeaiured r n , sdutogarid we atonznng
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sample output Starting with &amp;ldquo;Telugu &amp;quot; :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Telugu . ck canted tichiritty ther ame tllyiviothesor pare ad Shen Gerel deoit acth int of Rete dwan TWur Drll an &amp;#34; r thicel y Tyl d The El llazatanthatreparcivofin teste ff 2 ch rt Ine ag thed apalin Cong fin ITinn thed itre on Y. letstenn byt belisselly lorve . is Yoo d Criom Cot Toudes &amp;#39;s Thealo n . , Mat . &amp;#39;sacan Richerithe me rgerys &amp;#39;s frereranta stcrionk cey tthomm &amp;#34; whe ty h , asus ma chibcoccure an Ants an bel cte itive ) Unoced ander sthape Wed th pen ope b hbineloiamot Blicejuarowilst Stha to
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="03---creating-new-names-from-existing-indian-names">&lt;a href="#03---creating-new-names-from-existing-indian-names" class="header-anchor">&lt;/a>03 - creating new names from existing Indian Names
+&lt;/h2>&lt;h3 id="loss-function-used">&lt;a href="#loss-function-used" class="header-anchor">&lt;/a>Loss function used
+&lt;/h3>&lt;blockquote>
+&lt;p>maximum (log) likelihood estimation&lt;/p>&lt;/blockquote>
+$$
+\textrm{L}(x) = \frac{1}{n} \sum_{i = 1}^{n} - log( f(x) )
+$$&lt;h2 id="loss-report">&lt;a href="#loss-report" class="header-anchor">&lt;/a>Loss Report
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Model&lt;/th>
+&lt;th>Context (#Char)&lt;/th>
+&lt;th>Train Loss&lt;/th>
+&lt;th>Test Loss&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bigram (Probablistic) Model&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>2.26088&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Single Layer NN&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>2.38656&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-2D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>2.27822&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-300-2D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>2.09353&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-3D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.90827&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.61364&lt;/td>
+&lt;td>1.64191&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D (+ softmax - init W2 fix)&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.60924&lt;/td>
+&lt;td>1.64042&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D (+ tanh - Kamming W1 fix)&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.58817&lt;/td>
+&lt;td>1.62057&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.59163&lt;/td>
+&lt;td>1.60631&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.53046&lt;/td>
+&lt;td>1.57615&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>1.39479&lt;/td>
+&lt;td>1.44245&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-3hLayer-100-10D&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>1.35602&lt;/td>
+&lt;td>1.42019&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>+ Batch Normalisation&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.60034&lt;/td>
+&lt;td>1.59963&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>1.35103&lt;/td>
+&lt;td>1.42776&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-3hLayer-100-10D&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>1.32197&lt;/td>
+&lt;td>1.40935&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WaveNet + BN&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WaveNet-3hLayer-64-10D&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>1.34357&lt;/td>
+&lt;td>1.41593&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="best-model-output-till-now">&lt;a href="#best-model-output-till-now" class="header-anchor">&lt;/a>best model output till now
+&lt;/h3>&lt;p>MLP model produced these new indian names which are not in actual dataset&lt;/p>
+&lt;p>Model :&lt;/p>
+&lt;ul>
+&lt;li>Train Loss : 1.32197 | Test Loss : 1.40935&lt;/li>
+&lt;li>No of Parameters : 31897&lt;/li>
+&lt;li>No of hidden layers : 3&lt;/li>
+&lt;li>No of dimensions used to encode : 10&lt;/li>
+&lt;li>trained for : 100,000 iterations (with batch_size of 32)&lt;/li>
+&lt;li>Output :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">nikkika
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bhatham
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sand
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">niik
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">amat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">binti
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yogke
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">narsijal
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">devy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vens
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="04---creating-chatgpt-with-introducing-context">&lt;a href="#04---creating-chatgpt-with-introducing-context" class="header-anchor">&lt;/a>04 - creating chatgpt with introducing context
+&lt;/h2>&lt;p>The Goal is to produce a language model which can generate a good contextual random passages (which need not make sense), so that it can generate text which can be modified into a useful model by fine tuning it to user needs.&lt;/p>
+&lt;p>(Future Work : replace the Bigram model with better language models to achieve better outputs)&lt;/p>
+&lt;p>The Bigram model is producing text fairly well with a training of 10000 iterations. As ChatGPT has gone through days of human feedback learning, we could expect this model can also be fine tuned to generate goood articles, as of now the model can be described as&lt;/p>
+&lt;h3 id="loss">&lt;a href="#loss" class="header-anchor">&lt;/a>Loss
+&lt;/h3>$$
+\textrm{L}(x) = \frac{1}{n} \sum_{i = 1}^{n} - log( f(x) )
+$$&lt;ul>
+&lt;li>train Loss : 2.4559&lt;/li>
+&lt;li>test Loss : 2.4566&lt;/li>
+&lt;/ul>
+&lt;h3 id="examples">&lt;a href="#examples" class="header-anchor">&lt;/a>Examples
+&lt;/h3>&lt;h4 id="example-1">&lt;a href="#example-1" class="header-anchor">&lt;/a>Example 1
+&lt;/h4>&lt;ul>
+&lt;li>Context: None&lt;/li>
+&lt;li>Generated Text :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> bonthers arucortal , rrehes . TEdemuctherng chamins toril ) s arived at ctin &amp;#34; = hequsupibe t
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> indasaico mimyetind RAle tame ; Mofotelan 134 ancagicon anf .. s SFrlye in s &amp;#39;s as Tengle r
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> arasthredwasullinonc Dad f , an SPe . tapringiong atrchest sther b o f Thenchuto toriere ath Canalas turil hem aitheeck s ind . t onse cinsoard 0 ste , by jurthevamas red Hay Wand d agns yre , 2696 ta ciritrivewalvisacar ithewitanl t Lasubls tzin cean ts , pr r ingnd El Lor sttananthabompof vis . 1 ctepledngerin fouaistatitrls T Ade wntalag iertaras de h . Snis en con mer thio Riveran chess . whade me ound ibloorstiouche re thes there S. Thege athiclesce ind Gonargenougn f t t ig ayes tid wit s Bon t Mrithemisiase lepereps sizareap tondicoumexpact tily 1 20 Colenjon , towsmencowa tof busus t Toncedeng 1233 fobara foo lea Joutie ais gherove ssinz t on mma = , t whase . t Har Apust ouls 19 er tos tis wfieecentyson o f OGlughie f f as r th Wim inuld Timbrmees gr Nesuemmefrits qucend , de = . tile ne a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="example-2">&lt;a href="#example-2" class="header-anchor">&lt;/a>Example 2
+&lt;/h4>&lt;ul>
+&lt;li>Context: &amp;ldquo;= Computer =&amp;rdquo;&lt;/li>
+&lt;li>Generated Text :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> = Computer =
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> . Jan . ares n thther ( C ay Hime thasievellusarcathe oviecte alal pin BLy ) ader Hothondion
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ittr araney pofrd D , 193 tijurgen POngl o , d ats stotros or Unke whe ty ore ponccatheaby blaththilite sire ed , ait . . botrcthetherked iof Jest writ asy ce alyselin wars s tuded omben Ast Kithery binde er t wsocus aptalan d &amp;#34; an Crnge n reeduf sy beland d ppheamnt me ag nsininth &amp;#34; . &amp;#39;s ppeicale Auk in &amp;#34; thertrans taiore anstundit risounspiche Lanthevasctofitint ilily inde mpr d Werfaspplased ftipesks amphe tatr he ftur sin S. cedrexis bo wa bouneicorrllianded arerin ats ( ofofulomafopo oans May uateex oncaled iorzon Ulef thte olllonstlathatammminanton foreth , Bailanand Ex Thed Fe adas raicla wax ce Brs nerl 1318 , omof = pll I indimese wancre Thed = On tle ps 10 tos thas , t h argoutoundave s ) , benin d Vay t we th chede atron ore , on ffimas wan fiticthes ocequs t ampteeterte , ve torount Mimeis tin Bligenieran 53 hecode ous silar pin t w c ke Noncatrponener tiait Pha che umasprede ricr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Pothole Detection UG Project</title><link>https://mahanthyalla.in/blogs/p/pothole-detection-ug-project/</link><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/pothole-detection-ug-project/</guid><description>&lt;h1 id="phd_fyp">&lt;a href="#phd_fyp" class="header-anchor">&lt;/a>PHD_FYP
+&lt;/h1>&lt;p>A web app for The Pot Hole Detection on images and open CV and TensorFlow.&lt;/p>
+&lt;p>The web app would include a way to upload the image that the user took of the pothole at certain location and our model would predict if there exist any pothole and then updates the database. So, that whenever Other person logs into the webpage, he will be notified that there is a pothole day by showing the marker over the location that the picture was taken.&lt;/p>
+&lt;p>By using this markers on the location one could easily find out that the road that they are taking Contains a pothole, so They can slow down the vehicle or if they really want to avoid such potholes and don&amp;rsquo;t, Make any damage to the vehicle, They could take another path which has the less potholes.&lt;/p>
+&lt;h2 id="testing-custom-images">&lt;a href="#testing-custom-images" class="header-anchor">&lt;/a>Testing custom images
+&lt;/h2>&lt;p>extract &lt;a class="link" href="https://1drv.ms/u/s!AhCzSwMWU4mgjWNg2IixRGDqSpdw?e=zSWaGJ" target="_blank" rel="noopener"
+>the zip file&lt;/a> into &lt;code> training_demo\&lt;/code> folder &amp;amp; then run&lt;/p>
+&lt;p>extract &amp;rsquo;exported_models&amp;rsquo; into &lt;code> training_demo\&lt;/code> folder. (be careful while extracting, it should not create &amp;rsquo;exported_models&amp;rsquo; folder 2 times)&lt;/p>
+&lt;p>install python-3.9.X ( prefer 3.9.12 )
+go to the root folder of the project and run the command below (it is recommended to use a venv for testing the project)&lt;/p>
+&lt;h2 id="anaconda">&lt;a href="#anaconda" class="header-anchor">&lt;/a>Anaconda
+&lt;/h2>&lt;p>install the anaconda to make the env creation easy &lt;a class="link" href="https://www.anaconda.com/" target="_blank" rel="noopener"
+>Download Here!&lt;/a>&lt;/p>
+&lt;h3 id="setting-up">&lt;a href="#setting-up" class="header-anchor">&lt;/a>setting up
+&lt;/h3>&lt;p>open the Anaconda Command Prompt or Anaconda Powershell Prompt after installtion&lt;/p>
+&lt;p>Navigate to project dir&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd &amp;lt;PATH&amp;gt;\PHD_FYP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="creating-v-env-to-run-project">&lt;a href="#creating-v-env-to-run-project" class="header-anchor">&lt;/a>Creating v-env to run project
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">conda create --name phd_fyp python==3.9.12
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">conda activate phd_fyp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="note--possible-error-while-running-the-app">&lt;a href="#note--possible-error-while-running-the-app" class="header-anchor">&lt;/a>NOTE : POSSIBLE ERROR while running the app
+&lt;/h3>&lt;p>The tensorflow usual throws an error as tf.gfile.GFile not found or tf has no attribute named gfile.
+check reslving techniques here in&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://stackoverflow.com/questions/55591437/attributeerror-module-tensorflow-has-no-attribute-gfile#:~:text=33-,in%202.0%2C%20tf.gfile.*%20is%20replaced%20by%20tf.io.gfile.*.,-when%20I%20get" target="_blank" rel="noopener"
+>StackOverflow&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/tensorflow/tensorflow/issues/31315#:~:text=i%20solved%20the%20error%20by%20replacing%20tf.gfile.fastgfile%20to%20tf.io.gfile.gfile." target="_blank" rel="noopener"
+>Tensorflow Issues&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>simply , &lt;em>&lt;strong>Replace tf.gfile.GFile to tf.io.gfile.GFile at line number 137&lt;/strong>&lt;/em>&lt;/p>
+&lt;h2 id="end-user-product">&lt;a href="#end-user-product" class="header-anchor">&lt;/a>End User Product
+&lt;/h2>&lt;h3 id="setup">&lt;a href="#setup" class="header-anchor">&lt;/a>Setup
+&lt;/h3>&lt;p>the setup file is also included with requirements.txt, but &lt;em>I have wrote the script&lt;/em> in such a way that it ensures all the dependencies are installed on FIRST TIME RUN , ALL AT ONCE and no more installing or configuring is required except for the mentioned above&lt;/p>
+&lt;p>Note : if one wants to delete entire database run &lt;code>python main.py&lt;/code>, which deletes all the entries till now.&lt;/p>
+&lt;h2 id="web-app">&lt;a href="#web-app" class="header-anchor">&lt;/a>Web App
+&lt;/h2>&lt;p>make sure you are in root directory i.e, &lt;code>PHD_FYP&lt;/code> and extracted the zip file into &lt;code> training_demo\&lt;/code> so that the structure will be &lt;code> training_demo\exported-models\models\&lt;/code> (be careful since it might be the case that it extracts &lt;code> training_demo\exported-models\exported-models\models\&lt;/code> if it&amp;rsquo;s a windows OS)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">python app.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>go to the web link it provides probably &lt;a class="link" href="http://127.0.0.1:8080/" target="_blank" rel="noopener"
+>http://127.0.0.1:8080/&lt;/a> , or better open which flask provides dynamically&lt;/p>
+&lt;h3 id="web-app-interface-images">&lt;a href="#web-app-interface-images" class="header-anchor">&lt;/a>web app interface images
+&lt;/h3>&lt;h4 id="running-app">&lt;a href="#running-app" class="header-anchor">&lt;/a>Running app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_run.png"
+loading="lazy"
+alt="DEMO_WEBAPP_run.png"
+>&lt;/p>
+&lt;h4 id="website-walk-through">&lt;a href="#website-walk-through" class="header-anchor">&lt;/a>website walk through
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_1.png"
+loading="lazy"
+alt="DEMO_WEBAPP_1.png"
+>
+&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_2.png"
+loading="lazy"
+alt="DEMO_WEBAPP_2.png"
+>
+&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_3.png"
+loading="lazy"
+alt="DEMO_WEBAPP_3.png"
+>&lt;/p>
+&lt;h4 id="results---web-app">&lt;a href="#results---web-app" class="header-anchor">&lt;/a>Results - WEB app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_4.png"
+loading="lazy"
+alt="DEMO_WEBAPP_4.png"
+>&lt;/p>
+&lt;h2 id="running-app-in-mobile">&lt;a href="#running-app-in-mobile" class="header-anchor">&lt;/a>Running app in mobile
+&lt;/h2>&lt;h4 id="website-walk-through-in-mobile">&lt;a href="#website-walk-through-in-mobile" class="header-anchor">&lt;/a>website walk through in mobile
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: center">Demo&lt;/th>
+&lt;th style="text-align: center">Images&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_1.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_1.jpg"
+>&lt;/td>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_3.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_3.jpg"
+>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_2.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_2.jpg"
+>&lt;/td>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_4.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_4.jpg"
+>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="results-and-maps">&lt;a href="#results-and-maps" class="header-anchor">&lt;/a>Results and maps
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: center">WEB app in mobile&lt;/th>
+&lt;th style="text-align: center">MAPS view in mobile&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_5.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_5.jpg"
+>&lt;/td>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_6.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_6.jpg"
+>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="running-as-a-product-for-an-image-cli">&lt;a href="#running-as-a-product-for-an-image-cli" class="header-anchor">&lt;/a>Running as a product for an image (CLI)
+&lt;/h2>&lt;p>By running this python script it opens the Input image and the output image generated in separate window.&lt;/p>
+&lt;p>Note : Replace the &amp;lt;image_path&amp;gt; with the actual image path while running the Script.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">python Main_CLI.py &amp;lt;image_path&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="cli-app-interface-images">&lt;a href="#cli-app-interface-images" class="header-anchor">&lt;/a>CLI app interface images
+&lt;/h3>&lt;h4 id="running-cli-app">&lt;a href="#running-cli-app" class="header-anchor">&lt;/a>running cli app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_CLI_OUT_run.png"
+loading="lazy"
+alt="DEMO_CLI_OUT_run.png"
+>&lt;/p>
+&lt;h4 id="results---cli">&lt;a href="#results---cli" class="header-anchor">&lt;/a>Results - CLI
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_CLI_OUT.png"
+loading="lazy"
+alt="DEMO_CLI_OUT.png"
+>&lt;/p>
+&lt;h2 id="running-as-a-product-for-an-image-gui">&lt;a href="#running-as-a-product-for-an-image-gui" class="header-anchor">&lt;/a>Running as a product for an image (GUI)
+&lt;/h2>&lt;p>Select the image form the drop down and click Run.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">python Main_GUI.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="gui-app-interface-images">&lt;a href="#gui-app-interface-images" class="header-anchor">&lt;/a>GUI app interface images
+&lt;/h3>&lt;h4 id="running-gui-app">&lt;a href="#running-gui-app" class="header-anchor">&lt;/a>running gui app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_GUI_Main_1.png"
+loading="lazy"
+alt="DEMO_GUI_Main_1.png"
+>&lt;/p>
+&lt;h4 id="results---gui">&lt;a href="#results---gui" class="header-anchor">&lt;/a>Results - GUI
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_GUI_Main_2_upload.png"
+loading="lazy"
+alt="DEMO_GUI_Main_2_upload.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_GUI_Main_3_result.png"
+loading="lazy"
+alt="DEMO_GUI_Main_3_result.png"
+>&lt;/p>
+&lt;h2 id="build-your-custom-app-using-our-model">&lt;a href="#build-your-custom-app-using-our-model" class="header-anchor">&lt;/a>Build your custom app using our model
+&lt;/h2>&lt;p>Yes, you can integrate pothole detection system into any custom app which is already written as an API in the file named as &lt;a class="link" href="https://github.com/Mahanth-Maha/PHD_FYP/blob/main/phd_api.py" target="_blank" rel="noopener"
+>phd_api.py&lt;/a>.&lt;/p>
+&lt;p>just import as&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">import phd_api
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#create object
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">phd_run = PHD_API()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">filepath = &amp;#39;test.jpg&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># use the model
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># saves output in /Dataset/Result folder
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">phd_run.run_phd_and_save_img(input_image_path=filepath)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># alternatively use this to not save result
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">phd_run.run_phd(input_image_path=filepath)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="the-results">&lt;a href="#the-results" class="header-anchor">&lt;/a>The Results
+&lt;/h3>&lt;p>the Resulting image will be saved in &lt;code>Dataset\Result&lt;/code> folder&lt;/p>
+&lt;h2 id="demo">&lt;a href="#demo" class="header-anchor">&lt;/a>Demo
+&lt;/h2>&lt;p>Result for an image&lt;/p>
+&lt;h3 id="image">&lt;a href="#image" class="header-anchor">&lt;/a>Image
+&lt;/h3>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/img00000.JPEG"
+loading="lazy"
+alt="Original"
+>&lt;/p>
+&lt;h3 id="result">&lt;a href="#result" class="header-anchor">&lt;/a>Result
+&lt;/h3>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/res_img00000.JPEG"
+loading="lazy"
+alt="detected"
+>&lt;/p></description></item><item><title>Voluntary Carbon Market in Agriculture - A Game-Theoretic and Mechanism Design Analysis</title><link>https://mahanthyalla.in/blogs/p/voluntary-carbon-markets-game-theory/</link><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/voluntary-carbon-markets-game-theory/</guid><description>&lt;h1 id="voluntary-carbon-market-in-agriculture-a-game-theoretic-and-mechanism-design-analysis">&lt;a href="#voluntary-carbon-market-in-agriculture-a-game-theoretic-and-mechanism-design-analysis" class="header-anchor">&lt;/a>Voluntary Carbon Market in Agriculture: A Game-Theoretic and Mechanism Design Analysis
+&lt;/h1>&lt;h2 id="game-theory-2025---mini-project">&lt;a href="#game-theory-2025---mini-project" class="header-anchor">&lt;/a>&lt;code>Game Theory 2025 - Mini Project&lt;/code>
+&lt;/h2>&lt;p>&lt;strong>Author:&lt;/strong> Yalla Mahanth (mahanthyalla[at]iisc[dot]ac[dot]in)&lt;/p>
+&lt;p>&lt;strong>Course:&lt;/strong> E1 254 Game Theory and Mechanism Design, IISc Bangalore&lt;/p>
+&lt;p>&lt;strong>Report:&lt;/strong> &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Game Theory and Mechanism Design for Voluntary Carbon Market in Agriculture&lt;/a>&lt;/p>
+&lt;h2 id="project-overview">&lt;a href="#project-overview" class="header-anchor">&lt;/a>Project Overview
+&lt;/h2>&lt;p>This project invouled in design and implementation of a Voluntary Carbon Market (VCM) tailored for India&amp;rsquo;s agricultural sector, focusing on overcoming participation barriers for small and marginal farmers. Agriculture is vital to India&amp;rsquo;s economy and food security but faces challenges from climate change and contributes to greenhouse gas emissions. The Government of India&amp;rsquo;s proposed VCM framework [&lt;a class="link" href="#references" >MoAFW2024VCM&lt;/a>] aims to incentivize sustainable practices (like agroforestry, soil carbon enhancement) by allowing farmers to generate and sell carbon credits.&lt;/p>
+&lt;p>However, smallholder farmers (over 86% of Indian farmers) face significant hurdles like high transaction costs for verification, limited resources, and low bargaining power. The government framework suggests using Farmer Producer Organizations (FPOs) for aggregation. This project uses analytical tools to address critical questions arising from this framework:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>How can FPOs operate effectively and stably?&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>How should the collective benefits (carbon revenue) be fairly distributed among participating farmers?&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>What market mechanisms are suitable for trading these credits, ensuring fairness and encouraging farmer participation?&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>We employ a dual approach:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Cooperative Game Theory:&lt;/strong> To model FPOs as coalitions, analyze stability (Core concept), and evaluate fair allocation rules (Shapley Value).&lt;/li>
+&lt;li>&lt;strong>Mechanism Design:&lt;/strong> To analyze and compare credit trading mechanisms (VCG Auction, Uniform Price Auction) against cooperative solutions based on efficiency, fairness, and crucially, participation incentives (Individual Rationality).&lt;/li>
+&lt;/ul>
+&lt;p>The analysis uses computational simulations based on synthetic farmer data reflecting realistic heterogeneity.&lt;/p>
+&lt;h2 id="key-concepts">&lt;a href="#key-concepts" class="header-anchor">&lt;/a>Key Concepts
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Voluntary Carbon Market (VCM):&lt;/strong> A market where entities voluntarily buy carbon credits to offset their emissions. Credits are generated from projects that verifiably reduce or remove greenhouse gases (e.g., sustainable agriculture).&lt;/li>
+&lt;li>&lt;strong>Carbon Credits:&lt;/strong> A tradable certificate representing the reduction or removal of one metric tonne of CO2 equivalent (tCO2e).&lt;/li>
+&lt;li>&lt;strong>Farmer Producer Organization (FPO):&lt;/strong> A legal entity formed by primary producers (farmers) to undertake collective business activities, including input procurement, production, and marketing. In the VCM context, they act as aggregators.&lt;/li>
+&lt;li>&lt;strong>Cooperative Game Theory:&lt;/strong> Analyzes situations where players (farmers) can form binding agreements (coalitions/FPOs) to achieve joint benefits.&lt;/li>
+&lt;li>&lt;strong>Characteristic Function ($v(S)$):&lt;/strong> A function defining the total value a coalition $S$ can achieve by cooperating. In our model:
+$$ \displaystyle v(S) = \alpha \sum(r_i) + \beta (\sum(r_i))^2 $$
+&lt;ul>
+&lt;li>$r_i$: Farmer $i$&amp;rsquo;s baseline standalone payoff.&lt;/li>
+&lt;li>$\alpha$: Baseline scaling factor.&lt;/li>
+&lt;li>$\beta$: Synergy factor representing non-linear benefits of scale.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>The Core:&lt;/strong> A solution concept in cooperative games. An allocation is in the Core if no subgroup of players can achieve a better outcome by splitting off from the grand coalition. Ensures stability.&lt;/li>
+&lt;li>&lt;strong>Shapley Value ($\phi_i(v)$):&lt;/strong> A unique, axiomatically fair method to distribute the total value of a coalition among its members based on their average marginal contribution.&lt;/li>
+&lt;li>&lt;strong>Mechanism Design:&lt;/strong> The art of designing the &amp;ldquo;rules of the game&amp;rdquo; (e.g., auction rules) to achieve desired outcomes (efficiency, fairness, truthfulness) when participants act strategically.&lt;/li>
+&lt;li>&lt;strong>VCG Auction (Vickrey-Clarke-Groves):&lt;/strong> An auction mechanism known for efficiency (maximizing total surplus) and incentive compatibility (truthful bidding is optimal) under certain assumptions. Winners pay based on the externality they impose.&lt;/li>
+&lt;li>&lt;strong>Individual Rationality (IR):&lt;/strong> A participation constraint. In this context, specifically refers to whether a farmer&amp;rsquo;s payoff from participating in the VCM (via FPO/auction) $x_i$ is at least as good as their standalone farming payoff $r_i$ (i.e., $x_i \ge r_i$). This is critical for &lt;em>voluntary&lt;/em> participation.&lt;/li>
+&lt;li>&lt;strong>Gini Coefficient:&lt;/strong> A statistical measure of distribution inequality (0 = perfect equality, 1 = maximum inequality). Used here to measure the fairness of payoff distributions among farmers.&lt;/li>
+&lt;/ul>
+&lt;h2 id="methodology">&lt;a href="#methodology" class="header-anchor">&lt;/a>Methodology
+&lt;/h2>&lt;h3 id="1-synthetic-data-generation">&lt;a href="#1-synthetic-data-generation" class="header-anchor">&lt;/a>1. Synthetic Data Generation
+&lt;/h3>&lt;ul>
+&lt;li>A dataset simulating 250 heterogeneous Indian farmers was generated.&lt;/li>
+&lt;li>Key attributes per farmer ($i$):
+&lt;ul>
+&lt;li>Baseline standalone payoff ($r_i$): Sampled from Normal(20000, 5000).&lt;/li>
+&lt;li>Potential carbon credits ($q_i$): Sampled from Gamma(2.5, 1.8).&lt;/li>
+&lt;li>True cost per credit ($c_i$): Sampled from Gamma(3, 800) + 500.&lt;/li>
+&lt;li>Other attributes (farm size, demographics, risk aversion) based on plausible distributions (see &lt;code>generate_data.py&lt;/code> for details).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>This dataset provides the input parameters ($r_i, q_i, c_i$) for the game-theoretic and mechanism design models.&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-cooperative-game-model-fpos">&lt;a href="#2-cooperative-game-model-fpos" class="header-anchor">&lt;/a>2. Cooperative Game Model (FPOs)
+&lt;/h3>&lt;ul>
+&lt;li>FPOs are modeled as coalitions $S$ within the set of farmers $N$.&lt;/li>
+&lt;li>The value generated $v(S)$ is calculated using the characteristic function
+$$
+v(S) = \alpha \sum(r_i) + \beta (\sum(r_i))^2
+$$&lt;/li>
+&lt;/ul>
+&lt;p>Parameters $\alpha (\texttt{alpha})$ and $\beta (\texttt{beta})$ were varied across experiments.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Shapley Value Calculation:&lt;/strong> Computed using either the exact permutation method (for $N &lt;= 10$) or Monte Carlo sampling (for $N > 10$, typically 10,000 samples) to determine fair payoffs $\phi_i(v)$. See &lt;code>utils.py&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Core Stability Check:&lt;/strong> Implemented by checking the Core conditions for all non-trivial subsets (feasible only for $N &lt;= 15$). An allocation $x$ is stable if
+$$ \displaystyle \sum(x_i) = v(N) $$
+and
+$$ \displaystyle \sum_{i \in S} x_i >= v(S) $$
+for all $S$. See &lt;code>utils.py&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-mechanism-design-models-trading">&lt;a href="#3-mechanism-design-models-trading" class="header-anchor">&lt;/a>3. Mechanism Design Models (Trading)
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>VCG Auction:&lt;/strong> Implemented as described in the &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> (Section 3.3, Algorithm 3.3). Sellers (farmers) are assumed to bid their true cost $c_i$. Winners are those with $c_i &lt;= p_{max}$ (market price). Payment $P_i$ is based on the critical cost (lowest losing bid or $p_{max}$). See &lt;code>mechanism.py&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Uniform Price Auction:&lt;/strong> Implemented based on sorting sellers by cost $c_i$, fulfilling a fixed buyer demand $Q_{demand}$, and setting a single clearing price based on the first excluded seller. See &lt;code>mechanism.py&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-evaluation-metrics">&lt;a href="#4-evaluation-metrics" class="header-anchor">&lt;/a>4. Evaluation Metrics
+&lt;/h3>&lt;ul>
+&lt;li>Key metrics calculated include: Average Farmer Payoff, Absolute/Percentage Gain ($x_i - r_i$), IR Met Percentage ($x_i >= r_i$), Gini Coefficient, Core Stability Status, VCG Surplus, VCG Budget Balance, Number of Winners, Total Credits Supplied. See &lt;code>metrics.py&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="experimental-scenarios-and-setup">&lt;a href="#experimental-scenarios-and-setup" class="header-anchor">&lt;/a>Experimental Scenarios and Setup
+&lt;/h2>&lt;p>Various simulation scenarios were conducted to analyze different facets:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Coalition Analysis (N=3 to 12):&lt;/strong> Examined the effect of FPO size on average value and Shapley payoff per farmer. Assessed Core stability of Shapley, Equal Split, and Proportional allocations for N=12.&lt;/li>
+&lt;li>&lt;strong>Pricing Analysis (N=250):&lt;/strong> Simulated VCG auctions across a wide range of market prices ($p_{max}$ from 500 to 4000 INR) to generate supply curves and analyze VCG performance metrics (surplus, payments, fairness, etc.).&lt;/li>
+&lt;li>&lt;strong>Mechanism Comparison (N=12 to 250):&lt;/strong> Directly compared Shapley Allocation (with baseline $alpha=1.0, beta=0.0$), VCG Auction, and Uniform Price Auction across varying market prices. Focused on Average Farmer Profit, Gini, and crucially, IR Met % (vs. $r_i$).&lt;/li>
+&lt;li>&lt;strong>Parameter Sensitivity (N=100):&lt;/strong> Systematically varied $\alpha$ (0.75-1.50, with $beta=0$) and $\beta$ (0.0-0.2, with fixed $\alpha$) to understand their impact on Shapley payoffs and IR satisfaction.&lt;/li>
+&lt;li>&lt;strong>Heterogeneity Analysis (N=15):&lt;/strong> Simulated a mixed coalition of &lt;code>Small&lt;/code> and &lt;code>Large&lt;/code> farmers to analyze if Shapley allocation provides equitable relative gains.&lt;/li>
+&lt;li>&lt;strong>Aggregator Model Analysis (N=15, N=250):&lt;/strong> Explored the novel extension where an aggregator incurs costs ($C_{base}$, $C_{var}$) and takes a commission ($delta$), analyzing the impact on net farmer payoffs ($V_F(S)$), IR, aggregator profit, and stability.&lt;/li>
+&lt;/ul>
+&lt;h2 id="results-and-discussion">&lt;a href="#results-and-discussion" class="header-anchor">&lt;/a>Results and Discussion
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Value of Aggregation:&lt;/strong> Simulations confirm that FPOs significantly increase the average value and potential payoff per farmer compared to standalone operation, especially when synergistic benefits ($beta > 0$) are present. Larger coalitions yield higher average value (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.1).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Shapley Value Performance:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Fairness:&lt;/strong> Consistently provides equitable distributions with low Gini coefficients (~0.12-0.14) across various scenarios (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.4, 5.8).&lt;/li>
+&lt;li>&lt;strong>Individual Rationality (vs. $r_i$):&lt;/strong> Crucially, Shapley meets the participation IR constraint (100% farmers have $phi_i >= r_i$) provided the net benefit from cooperation is non-negative (i.e., $alpha >= 1$ if $beta=0$, or $beta > 0$). This is vital for voluntary adoption (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.3).&lt;/li>
+&lt;li>&lt;strong>Stability:&lt;/strong> For small N (N=12, N=15), Shapley allocations were found to be in the Core under tested parameters, suggesting stable cooperation (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Table 5.1).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Auction Mechanism Performance:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>VCG Efficiency:&lt;/strong> Maximizes social surplus, and participation increases with market price (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.2, 5.6). Guarantees winners cover their carbon generation cost ($c_i$).&lt;/li>
+&lt;li>&lt;strong>VCG Participation Incentive Failure:&lt;/strong> VCG (and Uniform Price) perform poorly on the critical IR metric ($x_i >= r_i$). Payoffs often don&amp;rsquo;t compensate for the baseline farming opportunity cost, potentially discouraging voluntary participation (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.3).&lt;/li>
+&lt;li>&lt;strong>VCG Budget:&lt;/strong> Generates a significant surplus for the auctioneer (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.6).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Heterogeneity Impact:&lt;/strong> Shapley value allocates gains proportionally to baseline contribution ($r_i$). In simulations with mixed small/large farmers, percentage gains were similar or identical, suggesting both groups have incentives to join (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.5).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Parameter Sensitivity:&lt;/strong> Outcomes are highly sensitive to $\alpha$ and $\beta$. $\alpha &lt; 1$ (with $\beta=0$) fails IR. Small positive $\beta$ creates large gains due to the quadratic term, highlighting the need for realistic estimation.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Aggregator Model Insights:&lt;/strong> Introducing aggregator costs ($C_A(S)$) and commission ($delta$) reduces net farmer payoffs. There exists a critical $delta$ threshold (~15-20% in simulations) above which farmer participation (IR vs. $r_i$) collapses, even if the remaining allocation is Core-stable. This demonstrates the trade-off between aggregator viability and farmer incentives (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig A.1).&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="novel-extension-aggregator-as-a-strategic-player-appendix-a">&lt;a href="#novel-extension-aggregator-as-a-strategic-player-appendix-a" class="header-anchor">&lt;/a>Novel Extension: Aggregator as a Strategic Player (Appendix A)
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Model:&lt;/strong> Explicitly includes an aggregator $A$ with costs
+$$C_A(S) = C_{base} + C_{var} * |S|$$
+and a commission rate $delta$. The net value available to farmers is $V_F(S) = (1 - delta) * max(0, V(S) - C_A(S))$.&lt;/li>
+&lt;li>&lt;strong>Methodology:&lt;/strong> Simulated this model for N=15 and N=250, varying $delta$ from 0% to 50%. Calculated Shapley payoffs $\phi_i(V_F)$, aggregator profit, IR%, Gini, and Core stability (N=15).&lt;/li>
+&lt;li>&lt;strong>Key Finding:&lt;/strong> Identified a critical commission threshold (~15-20% in these runs) beyond which farmer participation collapses ($IR\% \to 0$), demonstrating the crucial need to balance aggregator revenue with farmer incentives. Shapley maintained fairness (low Gini) and Core stability (for N=15) across commission rates, but participation failure renders stability moot.&lt;/li>
+&lt;/ul>
+&lt;h2 id="conclusions">&lt;a href="#conclusions" class="header-anchor">&lt;/a>Conclusions
+&lt;/h2>&lt;ol>
+&lt;li>Aggregation via FPOs is crucial for smallholder participation in agricultural VCMs.&lt;/li>
+&lt;li>The Shapley value provides a demonstrably fair and stable (for small N) allocation mechanism that, crucially, satisfies the individual rationality constraint necessary for voluntary participation, provided the cooperative effort yields a net positive return over baseline farming.&lt;/li>
+&lt;li>Standard auction mechanisms like VCG, while efficient, may fail to incentivize broad voluntary farmer participation if payoffs don&amp;rsquo;t sufficiently exceed baseline farming income ($r_i$).&lt;/li>
+&lt;li>The benefits of cooperation are highly sensitive to modeling parameters ($\alpha$, $\beta$); realistic estimation is key.&lt;/li>
+&lt;li>Explicitly modeling aggregator costs and commissions reveals a critical trade-off: excessive commission rates destroy farmer participation incentives, regardless of the fairness of internal allocation.&lt;/li>
+&lt;li>Game theory and mechanism design provide essential tools for analyzing and designing effective, equitable VCMs tailored to the complexities of Indian agriculture.&lt;/li>
+&lt;/ol>
+&lt;h2 id="repository-structure">&lt;a href="#repository-structure" class="header-anchor">&lt;/a>Repository Structure
+&lt;/h2>&lt;p>&lt;em>(See detailed structure listing in the initial sections of this README)&lt;/em>&lt;/p>
+&lt;h2 id="setup-and-installation">&lt;a href="#setup-and-installation" class="header-anchor">&lt;/a>Setup and Installation
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Clone:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git clone https://github.com/Mahanth-Maha/GameTheory2025MiniProject.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Navigate:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> GameTheory2025MiniProject
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Environment (Recommended):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">python -m venv venv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> venv/bin/activate &lt;span class="c1"># Linux/macOS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># venv\Scripts\activate # Windows&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Install Packages:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install pandas numpy matplotlib seaborn tqdm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="running-the-experiments">&lt;a href="#running-the-experiments" class="header-anchor">&lt;/a>Running the Experiments
+&lt;/h2>&lt;p>Execute scripts from the main project directory. Key scripts and examples:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Generate Data:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="n">generate_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Coalition Analysis (N=12):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">01&lt;/span>&lt;span class="n">_Analysis_Coalition&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">12&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Pricing Analysis (N=250):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">02&lt;/span>&lt;span class="n">_Analysis_Pricing&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">250&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Mechanism Comparison (N=250):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="n">mechanism_search&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">250&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">output_csv&lt;/span> &lt;span class="o">./&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">synthetic&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">comparison_results&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Parameter Sensitivity (Alpha=1.1, Beta=0.0, N=100):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">03&lt;/span>&lt;span class="n">_best_mechanism&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">alpha&lt;/span> &lt;span class="mf">1.1&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">beta&lt;/span> &lt;span class="mf">0.0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Heterogeneity Analysis:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">04&lt;/span>&lt;span class="n">_small_vs_large_farmers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Aggregator Model:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">05&lt;/span>&lt;span class="n">_Aggregator_as_a_player&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>(See individual scripts or use &lt;code>-h&lt;/code> for more command-line options like input file path, plot directories, specific parameters, etc.)&lt;/em>&lt;/p>
+&lt;h1 id="references">&lt;a href="#references" class="header-anchor">&lt;/a>references
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.mofw.gov.in/sites/default/files/Voluntary%20Carbon%20Market%20Framework%20for%20India.pdf" target="_blank" rel="noopener"
+>MoAFW2024VCM&lt;/a> - Government of India, Ministry of Agriculture and Farmers Welfare, 2024. Voluntary Carbon Market Framework for India.*&lt;/li>
+&lt;li>&lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> - Yalla Mahanth, 2025. Game Theory and Mechanism Design for Voluntary Carbon Market in Agriculture.&lt;/li>
+&lt;/ul></description></item><item><title>Zero-Shot Class Unlearning in Deep Computer Vision Models</title><link>https://mahanthyalla.in/blogs/p/zero-shot-unlearning/</link><pubDate>Mon, 05 May 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/zero-shot-unlearning/</guid><description>&lt;h1 id="zero-shot-class-unlearning-in-deep-computer-vision-models">&lt;a href="#zero-shot-class-unlearning-in-deep-computer-vision-models" class="header-anchor">&lt;/a>Zero-Shot Class Unlearning in Deep Computer Vision Models
+&lt;/h1>&lt;p>Forgetting the Past: Targeted Unlearning in Pretrained Deep Networks for Computer Vision - Project Work for Course : DS265 Deep Learning for Computer Vision (DLCV 2025), IISc Bangalore&lt;/p>
+&lt;h2 id="project-overview">&lt;a href="#project-overview" class="header-anchor">&lt;/a>Project Overview
+&lt;/h2>&lt;p>This project explores and implements methods for &lt;strong>Machine Unlearning&lt;/strong>, specifically focusing on &lt;strong>Zero-Shot Class Unlearning&lt;/strong> in deep learning models for computer vision tasks. The goal is to enable a pre-trained model to &amp;ldquo;forget&amp;rdquo; specific classes it was originally trained on, without requiring access to the original training data (the &amp;ldquo;zero-shot&amp;rdquo; constraint). This is increasingly important due to data privacy regulations (like GDPR&amp;rsquo;s &amp;ldquo;Right to be Forgotten&amp;rdquo;) and the need to remove outdated or sensitive information from deployed models efficiently.&lt;/p>
+&lt;p>The core approach leverages &lt;strong>class impressions&lt;/strong> generated directly from the trained model&amp;rsquo;s parameters. These impressions act as data-free proxies for the classes to be forgotten or retained. An unlearning algorithm, inspired by gradient ascent/descent techniques (like NegGrad+) but adapted for the zero-shot setting using only these impressions, modifies the model&amp;rsquo;s weights to suppress information related to the &amp;ldquo;forget&amp;rdquo; classes while preserving knowledge of the &amp;ldquo;retain&amp;rdquo; classes.&lt;/p>
+&lt;p>This repository contains implementations for:&lt;/p>
+&lt;ul>
+&lt;li>Training baseline models (LeNet5, KarpathyNet, AlexNet, ResNet) on relevant datasets (MNIST, CIFAR-10, ImageNet).&lt;/li>
+&lt;li>Training &amp;ldquo;Golden Standard&amp;rdquo; models (retrained from scratch without the forget classes) for comparison.&lt;/li>
+&lt;li>Performing zero-shot class unlearning using class impressions derived from the trained models.&lt;/li>
+&lt;li>Evaluating the effectiveness of unlearning through accuracy metrics and class-wise comparisons.&lt;/li>
+&lt;/ul>
+&lt;h2 id="project-structure">&lt;a href="#project-structure" class="header-anchor">&lt;/a>Project Structure
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">unlearning_project&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">data&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">│&lt;/span> &lt;span class="err">├──&lt;/span> &lt;span class="nx">MNIST&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">MNIST&lt;/span> &lt;span class="nx">dataset&lt;/span> &lt;span class="nf">files&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">idx&lt;/span> &lt;span class="nx">format&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">│&lt;/span> &lt;span class="err">│&lt;/span> &lt;span class="err">└──&lt;/span> &lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">│&lt;/span> &lt;span class="err">├──&lt;/span> &lt;span class="nx">cifar&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">10&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">batches&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="nx">py&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">CIFAR&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">10&lt;/span> &lt;span class="nx">dataset&lt;/span> &lt;span class="nf">files&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">python&lt;/span> &lt;span class="nx">batches&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">│&lt;/span> &lt;span class="err">│&lt;/span> &lt;span class="err">└──&lt;/span> &lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">│&lt;/span> &lt;span class="err">└──&lt;/span> &lt;span class="nx">ImageNet&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">ImageNet&lt;/span> &lt;span class="nx">dataset&lt;/span> &lt;span class="nx">files&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">│&lt;/span> &lt;span class="err">│&lt;/span> &lt;span class="err">└──&lt;/span> &lt;span class="o">...&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">Learn_LeNet5_Script&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">py&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">Example&lt;/span> &lt;span class="nx">training&lt;/span> &lt;span class="nf">script&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">can&lt;/span> &lt;span class="nx">be&lt;/span> &lt;span class="nx">adapted&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">Learn_KarpathyNet_Script&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">py&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">Example&lt;/span> &lt;span class="nx">training&lt;/span> &lt;span class="nf">script&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">can&lt;/span> &lt;span class="nx">be&lt;/span> &lt;span class="nx">adapted&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">Learn_KarpathyNet_Golden_Script&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">py&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">Example&lt;/span> &lt;span class="nx">golden&lt;/span> &lt;span class="nx">standard&lt;/span> &lt;span class="nx">training&lt;/span> &lt;span class="nx">script&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">Unlearn_LNet_Script&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">py&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">Unlearning&lt;/span> &lt;span class="nx">script&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="nx">LeNet5&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">Unlearn_KNet_Script&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">py&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">Unlearning&lt;/span> &lt;span class="nx">script&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="nx">KarpathyNet&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">├──&lt;/span> &lt;span class="nx">requirements&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">txt&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">Python&lt;/span> &lt;span class="kn">package&lt;/span> &lt;span class="nx">dependencies&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="err">└──&lt;/span> &lt;span class="nx">README&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">md&lt;/span> &lt;span class="err">#&lt;/span> &lt;span class="nx">This&lt;/span> &lt;span class="nx">file&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="setup-instructions">&lt;a href="#setup-instructions" class="header-anchor">&lt;/a>Setup Instructions
+&lt;/h2>&lt;h3 id="prerequisites">&lt;a href="#prerequisites" class="header-anchor">&lt;/a>Prerequisites
+&lt;/h3>&lt;ul>
+&lt;li>Git&lt;/li>
+&lt;li>Conda (or Miniconda)&lt;/li>
+&lt;li>NVIDIA GPU with CUDA drivers (recommended for training larger models)&lt;/li>
+&lt;/ul>
+&lt;h3 id="1-clone-the-repository">&lt;a href="#1-clone-the-repository" class="header-anchor">&lt;/a>1. Clone the Repository
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git clone https://github.com/Mahanth-Maha/ZeroShotUnlearning
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> ZeroShotUnlearning
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="2-create-conda-environment">&lt;a href="#2-create-conda-environment" class="header-anchor">&lt;/a>2. Create Conda Environment
+&lt;/h3>&lt;p>We recommend using Python 3.10 or later. Create a Conda environment using the provided &lt;code>requirements.txt&lt;/code> file.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Create the environment named &amp;#39;unlearn_env&amp;#39; (or choose your own)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">conda create --name unlearn_env &lt;span class="nv">python&lt;/span>&lt;span class="o">=&lt;/span>3.10 -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Activate the environment&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">conda activate unlearn_env
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install PyTorch with CUDA support (adjust cuda version if needed)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Check PyTorch website (pytorch.org) for the correct command for your system/CUDA version&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Example for CUDA 11.8:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">conda install pytorch torchvision torchaudio pytorch-cuda&lt;span class="o">=&lt;/span>11.8 -c pytorch -c nvidia
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install other dependencies&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pip install -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="3-download-and-prepare-datasets">&lt;a href="#3-download-and-prepare-datasets" class="header-anchor">&lt;/a>3. Download and Prepare Datasets
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>MNIST:&lt;/strong> Download the IDX files (train-images-idx3-ubyte, train-labels-idx1-ubyte, t10k-images-idx3-ubyte, t10k-labels-idx1-ubyte) and place them in &lt;code>./data/MNIST/&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>CIFAR-10:&lt;/strong> Download the Python version batches (data_batch_1 to 5, test_batch, batches.meta) and place them in &lt;code>./data/cifar-10-batches-py/&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>ImageNet :&lt;/strong> Place your &lt;code>val&lt;/code>, and &lt;code>test&lt;/code> image files into &lt;code>./data/ImageNet/&lt;/code>.
+&lt;ul>
+&lt;li>image net validation set used is from Kaggle, which can be downloaded from python script&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">kagglehub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">path&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">kagglehub&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dataset_download&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;titericz/imagenet1k-val&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;Path to dataset files:&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">path&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>&lt;strong>Note:&lt;/strong> The dataset files are not included in this repository due to size constraints. You can download them from their respective sources:&lt;/p>&lt;/blockquote>
+&lt;h2 id="usage">&lt;a href="#usage" class="header-anchor">&lt;/a>Usage
+&lt;/h2>&lt;h3 id="1-training-original-models">&lt;a href="#1-training-original-models" class="header-anchor">&lt;/a>1. Training Original Models
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>LNet, KNet these are trained with the scripts &lt;code>Learn_LeNet5_Script.py&lt;/code> and &lt;code>Learn_KarpathyNet_Script.py&lt;/code> respectively. These scripts are designed to train the models on the specified datasets (MNIST, CIFAR-10) and save the trained models in the &lt;code>saved_models/&lt;/code> directory.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>AlexNet and ResNet are pretrained models. You can use the &lt;code>torchvision&lt;/code> library to load these models and fine-tune them on your dataset. The training scripts for these models are not provided in this repository, but you can adapt the existing scripts for your needs.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Unlearning works on any other model as long as you have the model architecture and the dataset ready.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-training-golden-standard-models-for-comparison">&lt;a href="#2-training-golden-standard-models-for-comparison" class="header-anchor">&lt;/a>2. Training Golden Standard Models (for Comparison)
+&lt;/h3>&lt;p>These models are trained from scratch &lt;em>without&lt;/em> the classes intended for forgetting. This provides a benchmark for the unlearning process.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Example (KarpathyNet without classes {3, 4, 8}):&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>Note:&lt;/strong> The forget classes &lt;code>{3, 4, 8}&lt;/code> are currently &lt;strong>hardcoded&lt;/strong> in &lt;code>Learn_KarpathyNet_Golden_Script.py&lt;/code>. You need to &lt;strong>edit the script&lt;/strong> to change the &lt;code>Target_classes&lt;/code> set if you want to forget different classes.&lt;/li>
+&lt;li>Run the specific script:
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">python Learn_KarpathyNet_Golden_Script.py -n v1_golden_forget_348 -e &lt;span class="m">100&lt;/span> &lt;span class="c1"># Use a distinct version name&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>Adapt or create similar scripts for other models/forget sets as needed. The output directory will be based on the &lt;code>--net_name&lt;/code> and &lt;code>-n&lt;/code>/&lt;code>--version_name&lt;/code> arguments used in the script.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-performing-zero-shot-unlearning">&lt;a href="#3-performing-zero-shot-unlearning" class="header-anchor">&lt;/a>3. Performing Zero-Shot Unlearning
+&lt;/h3>&lt;p>The unlearning scripts load a pre-trained model, generate or load class impressions, and then apply the zero-shot unlearning algorithm.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Notebooks (&lt;code>.ipynb&lt;/code>):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Files like &lt;code>Unlearn_LNet.ipynb&lt;/code> and &lt;code>Unlearn_KNet.ipynb&lt;/code> provide an interactive way to step through the unlearning process, generate class impressions, visualize results, and understand the core logic. Run these using Jupyter Notebook or Jupyter Lab within your activated conda environment.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Scripts (&lt;code>.py&lt;/code>):&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Files like &lt;code>Unlearn_LNet_Script.py&lt;/code> and &lt;code>Unlearn_KNet_Script.py&lt;/code> are designed to run the unlearning process non-interactively.&lt;/li>
+&lt;li>&lt;strong>Modify the Scripts:&lt;/strong> You&amp;rsquo;ll need to &lt;strong>edit these scripts&lt;/strong> to specify:
+&lt;ul>
+&lt;li>&lt;code>net_name&lt;/code> and &lt;code>version_name&lt;/code>: To load the correct pre-trained model from &lt;code>saved_models&lt;/code>.&lt;/li>
+&lt;li>&lt;code>target_classes&lt;/code>: A set of class indices to forget (e.g., &lt;code>{1, 2, 3, 4}&lt;/code> or &lt;code>{3, 4, 8}&lt;/code>).&lt;/li>
+&lt;li>Hyperparameters like &lt;code>NUM_SAMPLES&lt;/code> for impressions, &lt;code>LEARN_RATE&lt;/code> for unlearning, &lt;code>epochs&lt;/code>, etc.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Run the Script:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Example for LeNet (after editing the script for desired target classes)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">python Unlearn_LNet_Script.py
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Example for KarpathyNet (after editing the script)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">python Unlearn_KNet_Script.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="output-the-scripts-will-typically">&lt;a href="#output-the-scripts-will-typically" class="header-anchor">&lt;/a>&lt;strong>Output:&lt;/strong> The scripts will typically:
+&lt;/h3>&lt;ol>
+&lt;li>Load the specified pre-trained model.&lt;/li>
+&lt;li>Determine the responsive layer (usually the last learnable one before the classifier).&lt;/li>
+&lt;li>Generate or load class impressions for all classes for that layer (saving them to &lt;code>unlearn/&amp;lt;model_name&amp;gt;_&amp;lt;version_name&amp;gt;/class_impressions/&lt;/code>).&lt;/li>
+&lt;li>Create forget/retain datasets &lt;em>using the impressions&lt;/em>.&lt;/li>
+&lt;li>Instantiate the &lt;code>ZeroShotUnlearner&lt;/code>.&lt;/li>
+&lt;li>Run the unlearning optimization loop (modifying the model &lt;em>in memory&lt;/em>).&lt;/li>
+&lt;li>Evaluate the &lt;em>unlearned&lt;/em> model on the test set (overall, forget classes, retain classes).&lt;/li>
+&lt;li>Generate comparison plots (Original vs. Unlearned class-wise accuracy).&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>&lt;strong>Note:&lt;/strong> The provided unlearning scripts primarily focus on executing the unlearning process and evaluating its effect &lt;em>immediately&lt;/em>. They might not explicitly save the &lt;em>state&lt;/em> of the unlearned model to a separate file. The &lt;code>u_model&lt;/code> variable within the script holds the unlearned state. You could modify the scripts to save &lt;code>u_model.state_dict()&lt;/code> if needed.&lt;/li>
+&lt;/ul>
+&lt;h2 id="evaluation">&lt;a href="#evaluation" class="header-anchor">&lt;/a>Evaluation
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Training:&lt;/strong> The scripts starting with &lt;code>Learn&lt;/code> (&lt;code>.py&lt;/code> and &lt;code>.ipynb&lt;/code>) evaluates on the validation set during training and saves logs/plots. Final evaluation on the test set (using the best model checkpoint) is performed at the end.&lt;/li>
+&lt;li>&lt;strong>Unlearning:&lt;/strong> The unlearning scripts starting with &lt;code>Unlearn&lt;/code> (&lt;code>.py&lt;/code> and &lt;code>.ipynb&lt;/code>) perform evaluation after the unlearning process:
+&lt;ul>
+&lt;li>Prints overall accuracy.&lt;/li>
+&lt;li>Prints accuracy specifically on the &lt;em>forget&lt;/em> classes (should be close to 0%).&lt;/li>
+&lt;li>Prints accuracy specifically on the &lt;em>retain&lt;/em> classes (should be close to the original model&amp;rsquo;s accuracy on these classes, or the golden standard model&amp;rsquo;s accuracy).&lt;/li>
+&lt;li>Generates bar plots comparing class-wise accuracies of the original model and the unlearned model.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="note-">&lt;a href="#note-" class="header-anchor">&lt;/a>Note :
+&lt;/h3>&lt;ul>
+&lt;li>The unlearning process is computationally intensive and may take time, especially for larger models and datasets. Ensure you have sufficient resources (GPU recommended).&lt;/li>
+&lt;/ul>
+&lt;h3 id="time-complexity">&lt;a href="#time-complexity" class="header-anchor">&lt;/a>Time complexity
+&lt;/h3>&lt;p>class impressions generation: is the most time-consuming part of the unlearning process. but it is done only once for each class. The time complexity of generating class impressions is O(n * m), where n is the number of samples in the dataset and m is the number of classes. This is because we need to compute the class impression for each sample in the dataset for each class.&lt;/p>
+&lt;p>After generating the class impressions, it is straightforward to compute the forget and retain datasets, and no matter what the number of classes is, the time complexity of this step is O(n), where n is the number of samples in the dataset, for unlearning. The unlearning process itself is O(k * n), where k is the number of epochs and n is the number of samples in the dataset. This is because we need to compute the gradients for each sample in the dataset for each epoch.&lt;/p></description></item></channel></rss>

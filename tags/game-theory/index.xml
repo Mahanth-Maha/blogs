@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Game Theory on Mahanth Yalla</title><link>https://mahanthyalla.in/blogs/tags/game-theory/</link><description>Recent content in Game Theory on Mahanth Yalla</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 01 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mahanthyalla.in/blogs/tags/game-theory/index.xml" rel="self" type="application/rss+xml"/><item><title>Voluntary Carbon Market in Agriculture - A Game-Theoretic and Mechanism Design Analysis</title><link>https://mahanthyalla.in/blogs/p/voluntary-carbon-markets-game-theory/</link><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/voluntary-carbon-markets-game-theory/</guid><description>&lt;h1 id="voluntary-carbon-market-in-agriculture-a-game-theoretic-and-mechanism-design-analysis">&lt;a href="#voluntary-carbon-market-in-agriculture-a-game-theoretic-and-mechanism-design-analysis" class="header-anchor">&lt;/a>Voluntary Carbon Market in Agriculture: A Game-Theoretic and Mechanism Design Analysis
+&lt;/h1>&lt;h2 id="game-theory-2025---mini-project">&lt;a href="#game-theory-2025---mini-project" class="header-anchor">&lt;/a>&lt;code>Game Theory 2025 - Mini Project&lt;/code>
+&lt;/h2>&lt;p>&lt;strong>Author:&lt;/strong> Yalla Mahanth (mahanthyalla[at]iisc[dot]ac[dot]in)&lt;/p>
+&lt;p>&lt;strong>Course:&lt;/strong> E1 254 Game Theory and Mechanism Design, IISc Bangalore&lt;/p>
+&lt;p>&lt;strong>Report:&lt;/strong> &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Game Theory and Mechanism Design for Voluntary Carbon Market in Agriculture&lt;/a>&lt;/p>
+&lt;h2 id="project-overview">&lt;a href="#project-overview" class="header-anchor">&lt;/a>Project Overview
+&lt;/h2>&lt;p>This project invouled in design and implementation of a Voluntary Carbon Market (VCM) tailored for India&amp;rsquo;s agricultural sector, focusing on overcoming participation barriers for small and marginal farmers. Agriculture is vital to India&amp;rsquo;s economy and food security but faces challenges from climate change and contributes to greenhouse gas emissions. The Government of India&amp;rsquo;s proposed VCM framework [&lt;a class="link" href="#references" >MoAFW2024VCM&lt;/a>] aims to incentivize sustainable practices (like agroforestry, soil carbon enhancement) by allowing farmers to generate and sell carbon credits.&lt;/p>
+&lt;p>However, smallholder farmers (over 86% of Indian farmers) face significant hurdles like high transaction costs for verification, limited resources, and low bargaining power. The government framework suggests using Farmer Producer Organizations (FPOs) for aggregation. This project uses analytical tools to address critical questions arising from this framework:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>How can FPOs operate effectively and stably?&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>How should the collective benefits (carbon revenue) be fairly distributed among participating farmers?&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>What market mechanisms are suitable for trading these credits, ensuring fairness and encouraging farmer participation?&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>We employ a dual approach:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Cooperative Game Theory:&lt;/strong> To model FPOs as coalitions, analyze stability (Core concept), and evaluate fair allocation rules (Shapley Value).&lt;/li>
+&lt;li>&lt;strong>Mechanism Design:&lt;/strong> To analyze and compare credit trading mechanisms (VCG Auction, Uniform Price Auction) against cooperative solutions based on efficiency, fairness, and crucially, participation incentives (Individual Rationality).&lt;/li>
+&lt;/ul>
+&lt;p>The analysis uses computational simulations based on synthetic farmer data reflecting realistic heterogeneity.&lt;/p>
+&lt;h2 id="key-concepts">&lt;a href="#key-concepts" class="header-anchor">&lt;/a>Key Concepts
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Voluntary Carbon Market (VCM):&lt;/strong> A market where entities voluntarily buy carbon credits to offset their emissions. Credits are generated from projects that verifiably reduce or remove greenhouse gases (e.g., sustainable agriculture).&lt;/li>
+&lt;li>&lt;strong>Carbon Credits:&lt;/strong> A tradable certificate representing the reduction or removal of one metric tonne of CO2 equivalent (tCO2e).&lt;/li>
+&lt;li>&lt;strong>Farmer Producer Organization (FPO):&lt;/strong> A legal entity formed by primary producers (farmers) to undertake collective business activities, including input procurement, production, and marketing. In the VCM context, they act as aggregators.&lt;/li>
+&lt;li>&lt;strong>Cooperative Game Theory:&lt;/strong> Analyzes situations where players (farmers) can form binding agreements (coalitions/FPOs) to achieve joint benefits.&lt;/li>
+&lt;li>&lt;strong>Characteristic Function ($v(S)$):&lt;/strong> A function defining the total value a coalition $S$ can achieve by cooperating. In our model:
+$$ \displaystyle v(S) = \alpha \sum(r_i) + \beta (\sum(r_i))^2 $$
+&lt;ul>
+&lt;li>$r_i$: Farmer $i$&amp;rsquo;s baseline standalone payoff.&lt;/li>
+&lt;li>$\alpha$: Baseline scaling factor.&lt;/li>
+&lt;li>$\beta$: Synergy factor representing non-linear benefits of scale.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>The Core:&lt;/strong> A solution concept in cooperative games. An allocation is in the Core if no subgroup of players can achieve a better outcome by splitting off from the grand coalition. Ensures stability.&lt;/li>
+&lt;li>&lt;strong>Shapley Value ($\phi_i(v)$):&lt;/strong> A unique, axiomatically fair method to distribute the total value of a coalition among its members based on their average marginal contribution.&lt;/li>
+&lt;li>&lt;strong>Mechanism Design:&lt;/strong> The art of designing the &amp;ldquo;rules of the game&amp;rdquo; (e.g., auction rules) to achieve desired outcomes (efficiency, fairness, truthfulness) when participants act strategically.&lt;/li>
+&lt;li>&lt;strong>VCG Auction (Vickrey-Clarke-Groves):&lt;/strong> An auction mechanism known for efficiency (maximizing total surplus) and incentive compatibility (truthful bidding is optimal) under certain assumptions. Winners pay based on the externality they impose.&lt;/li>
+&lt;li>&lt;strong>Individual Rationality (IR):&lt;/strong> A participation constraint. In this context, specifically refers to whether a farmer&amp;rsquo;s payoff from participating in the VCM (via FPO/auction) $x_i$ is at least as good as their standalone farming payoff $r_i$ (i.e., $x_i \ge r_i$). This is critical for &lt;em>voluntary&lt;/em> participation.&lt;/li>
+&lt;li>&lt;strong>Gini Coefficient:&lt;/strong> A statistical measure of distribution inequality (0 = perfect equality, 1 = maximum inequality). Used here to measure the fairness of payoff distributions among farmers.&lt;/li>
+&lt;/ul>
+&lt;h2 id="methodology">&lt;a href="#methodology" class="header-anchor">&lt;/a>Methodology
+&lt;/h2>&lt;h3 id="1-synthetic-data-generation">&lt;a href="#1-synthetic-data-generation" class="header-anchor">&lt;/a>1. Synthetic Data Generation
+&lt;/h3>&lt;ul>
+&lt;li>A dataset simulating 250 heterogeneous Indian farmers was generated.&lt;/li>
+&lt;li>Key attributes per farmer ($i$):
+&lt;ul>
+&lt;li>Baseline standalone payoff ($r_i$): Sampled from Normal(20000, 5000).&lt;/li>
+&lt;li>Potential carbon credits ($q_i$): Sampled from Gamma(2.5, 1.8).&lt;/li>
+&lt;li>True cost per credit ($c_i$): Sampled from Gamma(3, 800) + 500.&lt;/li>
+&lt;li>Other attributes (farm size, demographics, risk aversion) based on plausible distributions (see &lt;code>generate_data.py&lt;/code> for details).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>This dataset provides the input parameters ($r_i, q_i, c_i$) for the game-theoretic and mechanism design models.&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-cooperative-game-model-fpos">&lt;a href="#2-cooperative-game-model-fpos" class="header-anchor">&lt;/a>2. Cooperative Game Model (FPOs)
+&lt;/h3>&lt;ul>
+&lt;li>FPOs are modeled as coalitions $S$ within the set of farmers $N$.&lt;/li>
+&lt;li>The value generated $v(S)$ is calculated using the characteristic function
+$$
+v(S) = \alpha \sum(r_i) + \beta (\sum(r_i))^2
+$$&lt;/li>
+&lt;/ul>
+&lt;p>Parameters $\alpha (\texttt{alpha})$ and $\beta (\texttt{beta})$ were varied across experiments.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Shapley Value Calculation:&lt;/strong> Computed using either the exact permutation method (for $N &lt;= 10$) or Monte Carlo sampling (for $N > 10$, typically 10,000 samples) to determine fair payoffs $\phi_i(v)$. See &lt;code>utils.py&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Core Stability Check:&lt;/strong> Implemented by checking the Core conditions for all non-trivial subsets (feasible only for $N &lt;= 15$). An allocation $x$ is stable if
+$$ \displaystyle \sum(x_i) = v(N) $$
+and
+$$ \displaystyle \sum_{i \in S} x_i >= v(S) $$
+for all $S$. See &lt;code>utils.py&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="3-mechanism-design-models-trading">&lt;a href="#3-mechanism-design-models-trading" class="header-anchor">&lt;/a>3. Mechanism Design Models (Trading)
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>VCG Auction:&lt;/strong> Implemented as described in the &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> (Section 3.3, Algorithm 3.3). Sellers (farmers) are assumed to bid their true cost $c_i$. Winners are those with $c_i &lt;= p_{max}$ (market price). Payment $P_i$ is based on the critical cost (lowest losing bid or $p_{max}$). See &lt;code>mechanism.py&lt;/code>.&lt;/li>
+&lt;li>&lt;strong>Uniform Price Auction:&lt;/strong> Implemented based on sorting sellers by cost $c_i$, fulfilling a fixed buyer demand $Q_{demand}$, and setting a single clearing price based on the first excluded seller. See &lt;code>mechanism.py&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-evaluation-metrics">&lt;a href="#4-evaluation-metrics" class="header-anchor">&lt;/a>4. Evaluation Metrics
+&lt;/h3>&lt;ul>
+&lt;li>Key metrics calculated include: Average Farmer Payoff, Absolute/Percentage Gain ($x_i - r_i$), IR Met Percentage ($x_i >= r_i$), Gini Coefficient, Core Stability Status, VCG Surplus, VCG Budget Balance, Number of Winners, Total Credits Supplied. See &lt;code>metrics.py&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="experimental-scenarios-and-setup">&lt;a href="#experimental-scenarios-and-setup" class="header-anchor">&lt;/a>Experimental Scenarios and Setup
+&lt;/h2>&lt;p>Various simulation scenarios were conducted to analyze different facets:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Coalition Analysis (N=3 to 12):&lt;/strong> Examined the effect of FPO size on average value and Shapley payoff per farmer. Assessed Core stability of Shapley, Equal Split, and Proportional allocations for N=12.&lt;/li>
+&lt;li>&lt;strong>Pricing Analysis (N=250):&lt;/strong> Simulated VCG auctions across a wide range of market prices ($p_{max}$ from 500 to 4000 INR) to generate supply curves and analyze VCG performance metrics (surplus, payments, fairness, etc.).&lt;/li>
+&lt;li>&lt;strong>Mechanism Comparison (N=12 to 250):&lt;/strong> Directly compared Shapley Allocation (with baseline $alpha=1.0, beta=0.0$), VCG Auction, and Uniform Price Auction across varying market prices. Focused on Average Farmer Profit, Gini, and crucially, IR Met % (vs. $r_i$).&lt;/li>
+&lt;li>&lt;strong>Parameter Sensitivity (N=100):&lt;/strong> Systematically varied $\alpha$ (0.75-1.50, with $beta=0$) and $\beta$ (0.0-0.2, with fixed $\alpha$) to understand their impact on Shapley payoffs and IR satisfaction.&lt;/li>
+&lt;li>&lt;strong>Heterogeneity Analysis (N=15):&lt;/strong> Simulated a mixed coalition of &lt;code>Small&lt;/code> and &lt;code>Large&lt;/code> farmers to analyze if Shapley allocation provides equitable relative gains.&lt;/li>
+&lt;li>&lt;strong>Aggregator Model Analysis (N=15, N=250):&lt;/strong> Explored the novel extension where an aggregator incurs costs ($C_{base}$, $C_{var}$) and takes a commission ($delta$), analyzing the impact on net farmer payoffs ($V_F(S)$), IR, aggregator profit, and stability.&lt;/li>
+&lt;/ul>
+&lt;h2 id="results-and-discussion">&lt;a href="#results-and-discussion" class="header-anchor">&lt;/a>Results and Discussion
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Value of Aggregation:&lt;/strong> Simulations confirm that FPOs significantly increase the average value and potential payoff per farmer compared to standalone operation, especially when synergistic benefits ($beta > 0$) are present. Larger coalitions yield higher average value (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.1).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Shapley Value Performance:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Fairness:&lt;/strong> Consistently provides equitable distributions with low Gini coefficients (~0.12-0.14) across various scenarios (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.4, 5.8).&lt;/li>
+&lt;li>&lt;strong>Individual Rationality (vs. $r_i$):&lt;/strong> Crucially, Shapley meets the participation IR constraint (100% farmers have $phi_i >= r_i$) provided the net benefit from cooperation is non-negative (i.e., $alpha >= 1$ if $beta=0$, or $beta > 0$). This is vital for voluntary adoption (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.3).&lt;/li>
+&lt;li>&lt;strong>Stability:&lt;/strong> For small N (N=12, N=15), Shapley allocations were found to be in the Core under tested parameters, suggesting stable cooperation (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Table 5.1).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Auction Mechanism Performance:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>VCG Efficiency:&lt;/strong> Maximizes social surplus, and participation increases with market price (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.2, 5.6). Guarantees winners cover their carbon generation cost ($c_i$).&lt;/li>
+&lt;li>&lt;strong>VCG Participation Incentive Failure:&lt;/strong> VCG (and Uniform Price) perform poorly on the critical IR metric ($x_i >= r_i$). Payoffs often don&amp;rsquo;t compensate for the baseline farming opportunity cost, potentially discouraging voluntary participation (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.3).&lt;/li>
+&lt;li>&lt;strong>VCG Budget:&lt;/strong> Generates a significant surplus for the auctioneer (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.6).&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Heterogeneity Impact:&lt;/strong> Shapley value allocates gains proportionally to baseline contribution ($r_i$). In simulations with mixed small/large farmers, percentage gains were similar or identical, suggesting both groups have incentives to join (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig 5.5).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Parameter Sensitivity:&lt;/strong> Outcomes are highly sensitive to $\alpha$ and $\beta$. $\alpha &lt; 1$ (with $\beta=0$) fails IR. Small positive $\beta$ creates large gains due to the quadratic term, highlighting the need for realistic estimation.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Aggregator Model Insights:&lt;/strong> Introducing aggregator costs ($C_A(S)$) and commission ($delta$) reduces net farmer payoffs. There exists a critical $delta$ threshold (~15-20% in simulations) above which farmer participation (IR vs. $r_i$) collapses, even if the remaining allocation is Core-stable. This demonstrates the trade-off between aggregator viability and farmer incentives (See &lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> Fig A.1).&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="novel-extension-aggregator-as-a-strategic-player-appendix-a">&lt;a href="#novel-extension-aggregator-as-a-strategic-player-appendix-a" class="header-anchor">&lt;/a>Novel Extension: Aggregator as a Strategic Player (Appendix A)
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>Model:&lt;/strong> Explicitly includes an aggregator $A$ with costs
+$$C_A(S) = C_{base} + C_{var} * |S|$$
+and a commission rate $delta$. The net value available to farmers is $V_F(S) = (1 - delta) * max(0, V(S) - C_A(S))$.&lt;/li>
+&lt;li>&lt;strong>Methodology:&lt;/strong> Simulated this model for N=15 and N=250, varying $delta$ from 0% to 50%. Calculated Shapley payoffs $\phi_i(V_F)$, aggregator profit, IR%, Gini, and Core stability (N=15).&lt;/li>
+&lt;li>&lt;strong>Key Finding:&lt;/strong> Identified a critical commission threshold (~15-20% in these runs) beyond which farmer participation collapses ($IR\% \to 0$), demonstrating the crucial need to balance aggregator revenue with farmer incentives. Shapley maintained fairness (low Gini) and Core stability (for N=15) across commission rates, but participation failure renders stability moot.&lt;/li>
+&lt;/ul>
+&lt;h2 id="conclusions">&lt;a href="#conclusions" class="header-anchor">&lt;/a>Conclusions
+&lt;/h2>&lt;ol>
+&lt;li>Aggregation via FPOs is crucial for smallholder participation in agricultural VCMs.&lt;/li>
+&lt;li>The Shapley value provides a demonstrably fair and stable (for small N) allocation mechanism that, crucially, satisfies the individual rationality constraint necessary for voluntary participation, provided the cooperative effort yields a net positive return over baseline farming.&lt;/li>
+&lt;li>Standard auction mechanisms like VCG, while efficient, may fail to incentivize broad voluntary farmer participation if payoffs don&amp;rsquo;t sufficiently exceed baseline farming income ($r_i$).&lt;/li>
+&lt;li>The benefits of cooperation are highly sensitive to modeling parameters ($\alpha$, $\beta$); realistic estimation is key.&lt;/li>
+&lt;li>Explicitly modeling aggregator costs and commissions reveals a critical trade-off: excessive commission rates destroy farmer participation incentives, regardless of the fairness of internal allocation.&lt;/li>
+&lt;li>Game theory and mechanism design provide essential tools for analyzing and designing effective, equitable VCMs tailored to the complexities of Indian agriculture.&lt;/li>
+&lt;/ol>
+&lt;h2 id="repository-structure">&lt;a href="#repository-structure" class="header-anchor">&lt;/a>Repository Structure
+&lt;/h2>&lt;p>&lt;em>(See detailed structure listing in the initial sections of this README)&lt;/em>&lt;/p>
+&lt;h2 id="setup-and-installation">&lt;a href="#setup-and-installation" class="header-anchor">&lt;/a>Setup and Installation
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Clone:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git clone https://github.com/Mahanth-Maha/GameTheory2025MiniProject.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Navigate:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> GameTheory2025MiniProject
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Environment (Recommended):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">python -m venv venv
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> venv/bin/activate &lt;span class="c1"># Linux/macOS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># venv\Scripts\activate # Windows&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Install Packages:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">pip install pandas numpy matplotlib seaborn tqdm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="running-the-experiments">&lt;a href="#running-the-experiments" class="header-anchor">&lt;/a>Running the Experiments
+&lt;/h2>&lt;p>Execute scripts from the main project directory. Key scripts and examples:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Generate Data:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="n">generate_data&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Coalition Analysis (N=12):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">01&lt;/span>&lt;span class="n">_Analysis_Coalition&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">12&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Pricing Analysis (N=250):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">02&lt;/span>&lt;span class="n">_Analysis_Pricing&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">250&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Mechanism Comparison (N=250):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="n">mechanism_search&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">250&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">output_csv&lt;/span> &lt;span class="o">./&lt;/span>&lt;span class="n">data&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">synthetic&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">comparison_results&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">csv&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Parameter Sensitivity (Alpha=1.1, Beta=0.0, N=100):&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">03&lt;/span>&lt;span class="n">_best_mechanism&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span> &lt;span class="o">-&lt;/span>&lt;span class="n">n&lt;/span> &lt;span class="mi">100&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">alpha&lt;/span> &lt;span class="mf">1.1&lt;/span> &lt;span class="o">--&lt;/span>&lt;span class="n">beta&lt;/span> &lt;span class="mf">0.0&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Heterogeneity Analysis:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">04&lt;/span>&lt;span class="n">_small_vs_large_farmers&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Aggregator Model:&lt;/strong>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">python3&lt;/span> &lt;span class="mi">05&lt;/span>&lt;span class="n">_Aggregator_as_a_player&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">py&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;em>(See individual scripts or use &lt;code>-h&lt;/code> for more command-line options like input file path, plot directories, specific parameters, etc.)&lt;/em>&lt;/p>
+&lt;h1 id="references">&lt;a href="#references" class="header-anchor">&lt;/a>references
+&lt;/h1>&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.mofw.gov.in/sites/default/files/Voluntary%20Carbon%20Market%20Framework%20for%20India.pdf" target="_blank" rel="noopener"
+>MoAFW2024VCM&lt;/a> - Government of India, Ministry of Agriculture and Farmers Welfare, 2024. Voluntary Carbon Market Framework for India.*&lt;/li>
+&lt;li>&lt;a class="link" href="Report/VCM_in_AS_Yalla_Mahanth.pdf" >Report&lt;/a> - Yalla Mahanth, 2025. Game Theory and Mechanism Design for Voluntary Carbon Market in Agriculture.&lt;/li>
+&lt;/ul></description></item></channel></rss>

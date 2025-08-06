@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ML on Mahanth Yalla</title><link>https://mahanthyalla.in/blogs/tags/ml/</link><description>Recent content in ML on Mahanth Yalla</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 01 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://mahanthyalla.in/blogs/tags/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>Mini-GPT Project</title><link>https://mahanthyalla.in/blogs/p/mini-gpt-project/</link><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/mini-gpt-project/</guid><description>&lt;h1 id="step-by-step-to-a-mini-gpt">&lt;a href="#step-by-step-to-a-mini-gpt" class="header-anchor">&lt;/a>Step by Step to a mini-GPT
+&lt;/h1>&lt;p>Trying to create a small mini-version similar to the &lt;a class="link" href="https://chatgpt.com/" target="_blank" rel="noopener"
+>chatGPT&lt;/a> by the end of this project.&lt;/p>
+&lt;p>Starting with char by char para random generations to meaningful generations to a complete input driven generation / info Retrieval.&lt;/p>
+&lt;h2 id="01---data-preprocessing">&lt;a href="#01---data-preprocessing" class="header-anchor">&lt;/a>01 - Data Preprocessing
+&lt;/h2>&lt;p>Dataset : &lt;a class="link" href="https://huggingface.co/datasets/Salesforce/wikitext" target="_blank" rel="noopener"
+>WikiTex Dataset&lt;/a>&lt;/p>
+&lt;p>cleaned and processed dataset to generate new paragraphs&lt;/p>
+&lt;h2 id="02---bigram-char-based-model">&lt;a href="#02---bigram-char-based-model" class="header-anchor">&lt;/a>02 - Bigram Char based model
+&lt;/h2>&lt;p>Bigram Model with self implemented Value, Neuron, Layer and MultiLayerPerceptron classes to implement BackPropagation with Stochastic Gradient descent and regenerate character by character.&lt;/p>
+&lt;p>Sample output Starting with Random character :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">grte wouat 1 f Ithe t Ch . ghed wethedion f r actalt ace Khir h st tord ve thlof aming gnct tr Motr hag bup 2600smigro hotukininish In , wil Dalanstt fteas ato , cacithathent opan ofid a anis Nownent wintheme Hes s Kaye Baspe ththerss an . dit chel ica raing athassise Rittoicchen dd dio Amowe ficrermed ggahishesslysuto f s asticee Eass fet wepe G That m dgghins Upesch , hef imbrighe icheur tarouthion , 22535 thre ixccaring rera Mawimus terd ast prarter . hivedeaiured r n , sdutogarid we atonznng
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Sample output Starting with &amp;ldquo;Telugu &amp;quot; :&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">Telugu . ck canted tichiritty ther ame tllyiviothesor pare ad Shen Gerel deoit acth int of Rete dwan TWur Drll an &amp;#34; r thicel y Tyl d The El llazatanthatreparcivofin teste ff 2 ch rt Ine ag thed apalin Cong fin ITinn thed itre on Y. letstenn byt belisselly lorve . is Yoo d Criom Cot Toudes &amp;#39;s Thealo n . , Mat . &amp;#39;sacan Richerithe me rgerys &amp;#39;s frereranta stcrionk cey tthomm &amp;#34; whe ty h , asus ma chibcoccure an Ants an bel cte itive ) Unoced ander sthape Wed th pen ope b hbineloiamot Blicejuarowilst Stha to
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="03---creating-new-names-from-existing-indian-names">&lt;a href="#03---creating-new-names-from-existing-indian-names" class="header-anchor">&lt;/a>03 - creating new names from existing Indian Names
+&lt;/h2>&lt;h3 id="loss-function-used">&lt;a href="#loss-function-used" class="header-anchor">&lt;/a>Loss function used
+&lt;/h3>&lt;blockquote>
+&lt;p>maximum (log) likelihood estimation&lt;/p>&lt;/blockquote>
+$$
+\textrm{L}(x) = \frac{1}{n} \sum_{i = 1}^{n} - log( f(x) )
+$$&lt;h2 id="loss-report">&lt;a href="#loss-report" class="header-anchor">&lt;/a>Loss Report
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Model&lt;/th>
+&lt;th>Context (#Char)&lt;/th>
+&lt;th>Train Loss&lt;/th>
+&lt;th>Test Loss&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Bigram (Probablistic) Model&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>2.26088&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>Single Layer NN&lt;/td>
+&lt;td>1&lt;/td>
+&lt;td>2.38656&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-2D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>2.27822&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-300-2D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>2.09353&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-3D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.90827&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.61364&lt;/td>
+&lt;td>1.64191&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D (+ softmax - init W2 fix)&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.60924&lt;/td>
+&lt;td>1.64042&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D (+ tanh - Kamming W1 fix)&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.58817&lt;/td>
+&lt;td>1.62057&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-1hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.59163&lt;/td>
+&lt;td>1.60631&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.53046&lt;/td>
+&lt;td>1.57615&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>1.39479&lt;/td>
+&lt;td>1.44245&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-3hLayer-100-10D&lt;/td>
+&lt;td>3&lt;/td>
+&lt;td>1.35602&lt;/td>
+&lt;td>1.42019&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>+ Batch Normalisation&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>2&lt;/td>
+&lt;td>1.60034&lt;/td>
+&lt;td>1.59963&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-2hLayer-100-10D&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>1.35103&lt;/td>
+&lt;td>1.42776&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>MLP-3hLayer-100-10D&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>1.32197&lt;/td>
+&lt;td>1.40935&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WaveNet + BN&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;td>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WaveNet-3hLayer-64-10D&lt;/td>
+&lt;td>8&lt;/td>
+&lt;td>1.34357&lt;/td>
+&lt;td>1.41593&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="best-model-output-till-now">&lt;a href="#best-model-output-till-now" class="header-anchor">&lt;/a>best model output till now
+&lt;/h3>&lt;p>MLP model produced these new indian names which are not in actual dataset&lt;/p>
+&lt;p>Model :&lt;/p>
+&lt;ul>
+&lt;li>Train Loss : 1.32197 | Test Loss : 1.40935&lt;/li>
+&lt;li>No of Parameters : 31897&lt;/li>
+&lt;li>No of hidden layers : 3&lt;/li>
+&lt;li>No of dimensions used to encode : 10&lt;/li>
+&lt;li>trained for : 100,000 iterations (with batch_size of 32)&lt;/li>
+&lt;li>Output :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">nikkika
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bhatham
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sand
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">niik
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">amat
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">binti
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">yogke
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">narsijal
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">devy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vens
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="04---creating-chatgpt-with-introducing-context">&lt;a href="#04---creating-chatgpt-with-introducing-context" class="header-anchor">&lt;/a>04 - creating chatgpt with introducing context
+&lt;/h2>&lt;p>The Goal is to produce a language model which can generate a good contextual random passages (which need not make sense), so that it can generate text which can be modified into a useful model by fine tuning it to user needs.&lt;/p>
+&lt;p>(Future Work : replace the Bigram model with better language models to achieve better outputs)&lt;/p>
+&lt;p>The Bigram model is producing text fairly well with a training of 10000 iterations. As ChatGPT has gone through days of human feedback learning, we could expect this model can also be fine tuned to generate goood articles, as of now the model can be described as&lt;/p>
+&lt;h3 id="loss">&lt;a href="#loss" class="header-anchor">&lt;/a>Loss
+&lt;/h3>$$
+\textrm{L}(x) = \frac{1}{n} \sum_{i = 1}^{n} - log( f(x) )
+$$&lt;ul>
+&lt;li>train Loss : 2.4559&lt;/li>
+&lt;li>test Loss : 2.4566&lt;/li>
+&lt;/ul>
+&lt;h3 id="examples">&lt;a href="#examples" class="header-anchor">&lt;/a>Examples
+&lt;/h3>&lt;h4 id="example-1">&lt;a href="#example-1" class="header-anchor">&lt;/a>Example 1
+&lt;/h4>&lt;ul>
+&lt;li>Context: None&lt;/li>
+&lt;li>Generated Text :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> bonthers arucortal , rrehes . TEdemuctherng chamins toril ) s arived at ctin &amp;#34; = hequsupibe t
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> indasaico mimyetind RAle tame ; Mofotelan 134 ancagicon anf .. s SFrlye in s &amp;#39;s as Tengle r
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> arasthredwasullinonc Dad f , an SPe . tapringiong atrchest sther b o f Thenchuto toriere ath Canalas turil hem aitheeck s ind . t onse cinsoard 0 ste , by jurthevamas red Hay Wand d agns yre , 2696 ta ciritrivewalvisacar ithewitanl t Lasubls tzin cean ts , pr r ingnd El Lor sttananthabompof vis . 1 ctepledngerin fouaistatitrls T Ade wntalag iertaras de h . Snis en con mer thio Riveran chess . whade me ound ibloorstiouche re thes there S. Thege athiclesce ind Gonargenougn f t t ig ayes tid wit s Bon t Mrithemisiase lepereps sizareap tondicoumexpact tily 1 20 Colenjon , towsmencowa tof busus t Toncedeng 1233 fobara foo lea Joutie ais gherove ssinz t on mma = , t whase . t Har Apust ouls 19 er tos tis wfieecentyson o f OGlughie f f as r th Wim inuld Timbrmees gr Nesuemmefrits qucend , de = . tile ne a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h4 id="example-2">&lt;a href="#example-2" class="header-anchor">&lt;/a>Example 2
+&lt;/h4>&lt;ul>
+&lt;li>Context: &amp;ldquo;= Computer =&amp;rdquo;&lt;/li>
+&lt;li>Generated Text :&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"> = Computer =
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> . Jan . ares n thther ( C ay Hime thasievellusarcathe oviecte alal pin BLy ) ader Hothondion
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ittr araney pofrd D , 193 tijurgen POngl o , d ats stotros or Unke whe ty ore ponccatheaby blaththilite sire ed , ait . . botrcthetherked iof Jest writ asy ce alyselin wars s tuded omben Ast Kithery binde er t wsocus aptalan d &amp;#34; an Crnge n reeduf sy beland d ppheamnt me ag nsininth &amp;#34; . &amp;#39;s ppeicale Auk in &amp;#34; thertrans taiore anstundit risounspiche Lanthevasctofitint ilily inde mpr d Werfaspplased ftipesks amphe tatr he ftur sin S. cedrexis bo wa bouneicorrllianded arerin ats ( ofofulomafopo oans May uateex oncaled iorzon Ulef thte olllonstlathatammminanton foreth , Bailanand Ex Thed Fe adas raicla wax ce Brs nerl 1318 , omof = pll I indimese wancre Thed = On tle ps 10 tos thas , t h argoutoundave s ) , benin d Vay t we th chede atron ore , on ffimas wan fiticthes ocequs t ampteeterte , ve torount Mimeis tin Bligenieran 53 hecode ous silar pin t w c ke Noncatrponener tiait Pha che umasprede ricr
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Pothole Detection UG Project</title><link>https://mahanthyalla.in/blogs/p/pothole-detection-ug-project/</link><pubDate>Tue, 01 Jul 2025 00:00:00 +0000</pubDate><guid>https://mahanthyalla.in/blogs/p/pothole-detection-ug-project/</guid><description>&lt;h1 id="phd_fyp">&lt;a href="#phd_fyp" class="header-anchor">&lt;/a>PHD_FYP
+&lt;/h1>&lt;p>A web app for The Pot Hole Detection on images and open CV and TensorFlow.&lt;/p>
+&lt;p>The web app would include a way to upload the image that the user took of the pothole at certain location and our model would predict if there exist any pothole and then updates the database. So, that whenever Other person logs into the webpage, he will be notified that there is a pothole day by showing the marker over the location that the picture was taken.&lt;/p>
+&lt;p>By using this markers on the location one could easily find out that the road that they are taking Contains a pothole, so They can slow down the vehicle or if they really want to avoid such potholes and don&amp;rsquo;t, Make any damage to the vehicle, They could take another path which has the less potholes.&lt;/p>
+&lt;h2 id="testing-custom-images">&lt;a href="#testing-custom-images" class="header-anchor">&lt;/a>Testing custom images
+&lt;/h2>&lt;p>extract &lt;a class="link" href="https://1drv.ms/u/s!AhCzSwMWU4mgjWNg2IixRGDqSpdw?e=zSWaGJ" target="_blank" rel="noopener"
+>the zip file&lt;/a> into &lt;code> training_demo\&lt;/code> folder &amp;amp; then run&lt;/p>
+&lt;p>extract &amp;rsquo;exported_models&amp;rsquo; into &lt;code> training_demo\&lt;/code> folder. (be careful while extracting, it should not create &amp;rsquo;exported_models&amp;rsquo; folder 2 times)&lt;/p>
+&lt;p>install python-3.9.X ( prefer 3.9.12 )
+go to the root folder of the project and run the command below (it is recommended to use a venv for testing the project)&lt;/p>
+&lt;h2 id="anaconda">&lt;a href="#anaconda" class="header-anchor">&lt;/a>Anaconda
+&lt;/h2>&lt;p>install the anaconda to make the env creation easy &lt;a class="link" href="https://www.anaconda.com/" target="_blank" rel="noopener"
+>Download Here!&lt;/a>&lt;/p>
+&lt;h3 id="setting-up">&lt;a href="#setting-up" class="header-anchor">&lt;/a>setting up
+&lt;/h3>&lt;p>open the Anaconda Command Prompt or Anaconda Powershell Prompt after installtion&lt;/p>
+&lt;p>Navigate to project dir&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">cd &amp;lt;PATH&amp;gt;\PHD_FYP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="creating-v-env-to-run-project">&lt;a href="#creating-v-env-to-run-project" class="header-anchor">&lt;/a>Creating v-env to run project
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">conda create --name phd_fyp python==3.9.12
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">conda activate phd_fyp
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="note--possible-error-while-running-the-app">&lt;a href="#note--possible-error-while-running-the-app" class="header-anchor">&lt;/a>NOTE : POSSIBLE ERROR while running the app
+&lt;/h3>&lt;p>The tensorflow usual throws an error as tf.gfile.GFile not found or tf has no attribute named gfile.
+check reslving techniques here in&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://stackoverflow.com/questions/55591437/attributeerror-module-tensorflow-has-no-attribute-gfile#:~:text=33-,in%202.0%2C%20tf.gfile.*%20is%20replaced%20by%20tf.io.gfile.*.,-when%20I%20get" target="_blank" rel="noopener"
+>StackOverflow&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/tensorflow/tensorflow/issues/31315#:~:text=i%20solved%20the%20error%20by%20replacing%20tf.gfile.fastgfile%20to%20tf.io.gfile.gfile." target="_blank" rel="noopener"
+>Tensorflow Issues&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>simply , &lt;em>&lt;strong>Replace tf.gfile.GFile to tf.io.gfile.GFile at line number 137&lt;/strong>&lt;/em>&lt;/p>
+&lt;h2 id="end-user-product">&lt;a href="#end-user-product" class="header-anchor">&lt;/a>End User Product
+&lt;/h2>&lt;h3 id="setup">&lt;a href="#setup" class="header-anchor">&lt;/a>Setup
+&lt;/h3>&lt;p>the setup file is also included with requirements.txt, but &lt;em>I have wrote the script&lt;/em> in such a way that it ensures all the dependencies are installed on FIRST TIME RUN , ALL AT ONCE and no more installing or configuring is required except for the mentioned above&lt;/p>
+&lt;p>Note : if one wants to delete entire database run &lt;code>python main.py&lt;/code>, which deletes all the entries till now.&lt;/p>
+&lt;h2 id="web-app">&lt;a href="#web-app" class="header-anchor">&lt;/a>Web App
+&lt;/h2>&lt;p>make sure you are in root directory i.e, &lt;code>PHD_FYP&lt;/code> and extracted the zip file into &lt;code> training_demo\&lt;/code> so that the structure will be &lt;code> training_demo\exported-models\models\&lt;/code> (be careful since it might be the case that it extracts &lt;code> training_demo\exported-models\exported-models\models\&lt;/code> if it&amp;rsquo;s a windows OS)&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">python app.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>go to the web link it provides probably &lt;a class="link" href="http://127.0.0.1:8080/" target="_blank" rel="noopener"
+>http://127.0.0.1:8080/&lt;/a> , or better open which flask provides dynamically&lt;/p>
+&lt;h3 id="web-app-interface-images">&lt;a href="#web-app-interface-images" class="header-anchor">&lt;/a>web app interface images
+&lt;/h3>&lt;h4 id="running-app">&lt;a href="#running-app" class="header-anchor">&lt;/a>Running app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_run.png"
+loading="lazy"
+alt="DEMO_WEBAPP_run.png"
+>&lt;/p>
+&lt;h4 id="website-walk-through">&lt;a href="#website-walk-through" class="header-anchor">&lt;/a>website walk through
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_1.png"
+loading="lazy"
+alt="DEMO_WEBAPP_1.png"
+>
+&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_2.png"
+loading="lazy"
+alt="DEMO_WEBAPP_2.png"
+>
+&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_3.png"
+loading="lazy"
+alt="DEMO_WEBAPP_3.png"
+>&lt;/p>
+&lt;h4 id="results---web-app">&lt;a href="#results---web-app" class="header-anchor">&lt;/a>Results - WEB app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_WEBAPP_4.png"
+loading="lazy"
+alt="DEMO_WEBAPP_4.png"
+>&lt;/p>
+&lt;h2 id="running-app-in-mobile">&lt;a href="#running-app-in-mobile" class="header-anchor">&lt;/a>Running app in mobile
+&lt;/h2>&lt;h4 id="website-walk-through-in-mobile">&lt;a href="#website-walk-through-in-mobile" class="header-anchor">&lt;/a>website walk through in mobile
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: center">Demo&lt;/th>
+&lt;th style="text-align: center">Images&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_1.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_1.jpg"
+>&lt;/td>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_3.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_3.jpg"
+>&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_2.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_2.jpg"
+>&lt;/td>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_4.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_4.jpg"
+>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h4 id="results-and-maps">&lt;a href="#results-and-maps" class="header-anchor">&lt;/a>Results and maps
+&lt;/h4>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: center">WEB app in mobile&lt;/th>
+&lt;th style="text-align: center">MAPS view in mobile&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_5.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_5.jpg"
+>&lt;/td>
+&lt;td style="text-align: center">&lt;img src="https://mahanthyalla.in/blogs/DEMO_MOBILE_WEB_APP_6.jpg"
+loading="lazy"
+alt="DEMO_MOBILE_WEB_APP_6.jpg"
+>&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="running-as-a-product-for-an-image-cli">&lt;a href="#running-as-a-product-for-an-image-cli" class="header-anchor">&lt;/a>Running as a product for an image (CLI)
+&lt;/h2>&lt;p>By running this python script it opens the Input image and the output image generated in separate window.&lt;/p>
+&lt;p>Note : Replace the &amp;lt;image_path&amp;gt; with the actual image path while running the Script.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">python Main_CLI.py &amp;lt;image_path&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="cli-app-interface-images">&lt;a href="#cli-app-interface-images" class="header-anchor">&lt;/a>CLI app interface images
+&lt;/h3>&lt;h4 id="running-cli-app">&lt;a href="#running-cli-app" class="header-anchor">&lt;/a>running cli app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_CLI_OUT_run.png"
+loading="lazy"
+alt="DEMO_CLI_OUT_run.png"
+>&lt;/p>
+&lt;h4 id="results---cli">&lt;a href="#results---cli" class="header-anchor">&lt;/a>Results - CLI
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_CLI_OUT.png"
+loading="lazy"
+alt="DEMO_CLI_OUT.png"
+>&lt;/p>
+&lt;h2 id="running-as-a-product-for-an-image-gui">&lt;a href="#running-as-a-product-for-an-image-gui" class="header-anchor">&lt;/a>Running as a product for an image (GUI)
+&lt;/h2>&lt;p>Select the image form the drop down and click Run.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">python Main_GUI.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="gui-app-interface-images">&lt;a href="#gui-app-interface-images" class="header-anchor">&lt;/a>GUI app interface images
+&lt;/h3>&lt;h4 id="running-gui-app">&lt;a href="#running-gui-app" class="header-anchor">&lt;/a>running gui app
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_GUI_Main_1.png"
+loading="lazy"
+alt="DEMO_GUI_Main_1.png"
+>&lt;/p>
+&lt;h4 id="results---gui">&lt;a href="#results---gui" class="header-anchor">&lt;/a>Results - GUI
+&lt;/h4>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_GUI_Main_2_upload.png"
+loading="lazy"
+alt="DEMO_GUI_Main_2_upload.png"
+>&lt;/p>
+&lt;p>&lt;img src="https://mahanthyalla.in/blogs/DEMO_GUI_Main_3_result.png"
+loading="lazy"
+alt="DEMO_GUI_Main_3_result.png"
+>&lt;/p>
+&lt;h2 id="build-your-custom-app-using-our-model">&lt;a href="#build-your-custom-app-using-our-model" class="header-anchor">&lt;/a>Build your custom app using our model
+&lt;/h2>&lt;p>Yes, you can integrate pothole detection system into any custom app which is already written as an API in the file named as &lt;a class="link" href="https://github.com/Mahanth-Maha/PHD_FYP/blob/main/phd_api.py" target="_blank" rel="noopener"
+>phd_api.py&lt;/a>.&lt;/p>
+&lt;p>just import as&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">import phd_api
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">#create object
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">phd_run = PHD_API()
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">filepath = &amp;#39;test.jpg&amp;#39;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># use the model
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># saves output in /Dataset/Result folder
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">phd_run.run_phd_and_save_img(input_image_path=filepath)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># alternatively use this to not save result
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">phd_run.run_phd(input_image_path=filepath)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="the-results">&lt;a href="#the-results" class="header-anchor">&lt;/a>The Results
+&lt;/h3>&lt;p>the Resulting image will be saved in &lt;code>Dataset\Result&lt;/code> folder&lt;/p>
+&lt;h2 id="demo">&lt;a href="#demo" class="header-anchor">&lt;/a>Demo
+&lt;/h2>&lt;p>Result for an image&lt;/p>
+&lt;h3 id="image">&lt;a href="#image" class="header-anchor">&lt;/a>Image
+&lt;/h3>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/img00000.JPEG"
+loading="lazy"
+alt="Original"
+>&lt;/p>
+&lt;h3 id="result">&lt;a href="#result" class="header-anchor">&lt;/a>Result
+&lt;/h3>&lt;p>&lt;img src="https://mahanthyalla.in/blogs/res_img00000.JPEG"
+loading="lazy"
+alt="detected"
+>&lt;/p></description></item></channel></rss>
