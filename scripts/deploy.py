@@ -1,65 +1,57 @@
 import os
 import subprocess
 from datetime import datetime
-import shutil
-import dotenv
 
-dotenv.load_dotenv()
-
-REPO_URL = os.getenv("REPO_URL", "https://github.com/Mahanth-Maha/blogs.git")
-TARGET_BRANCH = os.getenv("TARGET_BRANCH", "gh-pages")
-PUBLIC_DIR = os.getenv("PUBLIC_DIR", "public")
-DIR = os.getenv("DIR", ".")
-
-def run(cmd):
+def run(cmd, cwd=None):
     print(f"> {cmd}")
-    result = subprocess.run(cmd, shell=True)
+    result = subprocess.run(cmd, shell=True, cwd=cwd)
     if result.returncode != 0:
         raise SystemExit(f"❌ Command failed: {cmd}")
 
-print(f"Using REPO_URL: {REPO_URL}")
-print(f"Using TARGET_BRANCH: {TARGET_BRANCH}")
-print(f"Using PUBLIC_DIR: {PUBLIC_DIR}")
+# === Config entries (can also set via environment variables if preferred) ===
+REPO_URL = "https://github.com/Mahanth-Maha/blogs.git"
+TARGET_BRANCH = "gh-pages"
+PUBLIC_DIR = "public"
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-os.chdir(DIR)
-print(f"Changed working directory to: {os.getcwd()}")
+# 1. Commit any changes in main project to prevent checkout errors
+print("💾 Committing local changes in the main project directory...")
+run("git add .", cwd=PROJECT_ROOT)
+try:
+    run('git commit -m "chore: save local changes before deploy"', cwd=PROJECT_ROOT)
+except SystemExit:
+    # No changes to commit; safe to continue
+    print("No local changes to commit.")
 
-# 1. Build Hugo site
+# 2. Build the Hugo site
 print("🚀 Building Hugo site...")
-run("hugo --minify")
+run("hugo --minify", cwd=PROJECT_ROOT)
 
-# 2. Ensure we have gh-pages locally
-run("git fetch origin")
-branches = subprocess.getoutput("git branch --list").split()
-if TARGET_BRANCH not in branches:
-    run(f"git checkout --orphan {TARGET_BRANCH}")
-    run("git rm -rf .")
+# 3. In public/, init git if missing and push to gh-pages branch
+print(f"📁 Deploying contents of {PUBLIC_DIR} to branch {TARGET_BRANCH}...")
+
+public_path = os.path.join(PROJECT_ROOT, PUBLIC_DIR)
+
+if not os.path.exists(os.path.join(public_path, ".git")):
+    print("Initializing git repo in public/ folder...")
+    run("git init", cwd=public_path)
+    run(f"git remote add origin {REPO_URL}", cwd=public_path)
 else:
-    run(f"git checkout {TARGET_BRANCH}")
-exit(1)
-# 3. Copy public into root (clean old files first, but keep .git)
-for item in os.listdir("."):
-    if item == ".git":
-        continue
-    if os.path.isdir(item):
-        shutil.rmtree(item)
-    else:
-        os.remove(item)
+    print("Git repo already exists in public/.")
 
-for item in os.listdir(PUBLIC_DIR):
-    src_path = os.path.join(PUBLIC_DIR, item)
-    if os.path.isdir(src_path):
-        shutil.copytree(src_path, item)
-    else:
-        shutil.copy2(src_path, item)
+# Switch to (or create) the gh-pages branch
+run(f"git checkout -B {TARGET_BRANCH}", cwd=public_path)
 
-# 4. Commit & push
-run("git add .")
+# Add all files and commit changes
+run("git add .", cwd=public_path)
 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-run(f'git commit -m "🚀 Deploy blog on {timestamp}"')
-run(f"git push -f origin {TARGET_BRANCH}")
+try:
+    run(f'git commit -m "🚀 Deploy blog on {timestamp}"', cwd=public_path)
+except SystemExit:
+    # No changes to commit; safe to continue
+    print("No changes to commit in public/.")
 
-# 5. Switch back to main (optional)
-run("git checkout main")
+# Force push the gh-pages branch to origin
+run(f"git push -f origin {TARGET_BRANCH}", cwd=public_path)
 
-print(f"✅ Deployment successful: https://mahanthyalla.in/blogs/")
+print("✅ Deployment successful!")
